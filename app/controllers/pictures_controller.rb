@@ -24,7 +24,8 @@ class PicturesController < ApplicationController
   # POST /pictures
   # POST /pictures.json
   def create
-    @picture = Picture.new(picture_params)
+    @picture = Picture.create(params[:id])
+    #@picture = Picture.create(picture_params)    
 
     respond_to do |format|
       if @picture.save
@@ -69,6 +70,6 @@ class PicturesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def picture_params
-      params.require(:picture).permit(:name, :description, :image)
+      params.require(:picture).permit(:name, :image)
     end
 end
