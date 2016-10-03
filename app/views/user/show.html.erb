@@ -1,0 +1,25 @@
+<h1>User Details</h1>
+
+<table style="border: 1px;">
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Birth Year</th>
+    <th>Created At</th>
+    <th>Updated At</th>
+  </tr>
+  <tr>
+    <td><%= @user.id %></td>
+    <td><%= @user.name %></td>
+    <td><%= @user.birth_year %></td>
+    <td><%= @user.created_at %></td>
+    <td><%= @user.updated_at %></td>
+  </tr>
+</table>
+
+<style>
+  table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+</style>
