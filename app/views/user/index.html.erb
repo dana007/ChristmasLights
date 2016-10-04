@@ -1,0 +1,37 @@
+<h1>User Info Form</h1>
+<%= form_for :user do |f| %>
+    <%= f.label :name %>:
+    <%= f.text_field :name %><br />
+    <br />
+    <%= f.label :birth_year %>:
+    <%= f.text_field :birth_year %><br />
+    <br />
+    <%= f.submit %>
+<% end %>
+
+<br /><br />
+
+<h1>All Users</h1>
+
+<table style="border: 1px;">
+  <tr>
+    <th>Name</th>
+    <th>Birth Year</th>
+    <th></th>
+  </tr>
+
+  <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.birth_year %></td>
+        <td><%= link_to 'Show', user_form_path(user) %></td>
+      </tr>
+  <% end %>
+</table>
+
+<style>
+  table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+</style>
