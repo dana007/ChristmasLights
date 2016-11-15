@@ -11,16 +11,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161003185208) do
+ActiveRecord::Schema.define(version: 20161115211818) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "users", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "birth_year"
+  create_table "comments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "home_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_index "comments", ["user_id", "home_id"], name: "index_comments_on_user_id_and_home_id", unique: true, using: :btree
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "home_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "favorites", ["user_id", "home_id"], name: "index_favorites_on_user_id_and_home_id", unique: true, using: :btree
+
+  create_table "homes", force: :cascade do |t|
+    t.string   "address"
+    t.integer  "rating"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "username"
+    t.string   "email"
+    t.string   "password"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "comments", "homes"
+  add_foreign_key "comments", "users"
+  add_foreign_key "favorites", "homes"
+  add_foreign_key "favorites", "users"
+  add_foreign_key "homes", "users"
 end
