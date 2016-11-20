@@ -1,3 +1,4 @@
+
 body {
   background-color: #fff;
   color: #333;
@@ -70,4 +71,38 @@ div {
     font-size: 12px;
     list-style: square;
   }
+}
+
+.homePageTitle{
+   margin-top: 80px;
+   margin-left: 145px;
+   font-weight: bold;
+   font-size: 35px;
+   color: green;
+    
+}
+
+.searchLine{
+  margin-top: 100px;
+  margin-left: 400px;
+  background-image:url('searchicon.png');
+  background-position: 10px 10px;
+
+}
+
+.searchBox{
+  border: 2px solid blue;
+  border-radius: 10px;
+}
+
+input[type=text]{
+  border: 2px solid gray;
+  border-radius: 4px;
+
+}
+
+input[type=text]:focus{
+  border: 2px solid gray;
+  border-radius: 4px;
+  background-color: lightblue;
 }
