@@ -2,8 +2,8 @@ class HomesController < ApplicationController
 
   def index
     @homes = Home.all
-    if params[:home]
-      @homes = Home.filter(params[:address])
+    if params[:tags]
+      @homes = Home.tagged(params[:tags])
     else
       @homes = Home.all.limit(10)
     end    
