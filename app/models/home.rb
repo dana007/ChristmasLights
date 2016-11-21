@@ -3,6 +3,7 @@ class Home < ActiveRecord::Base
   has_many :comments
 
   has_many :users, through: :favorites
+  has_many :tags, through: :home_tags
   
   # def self.search(search)
   #   if search

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161115211818) do
+ActiveRecord::Schema.define(version: 20161121013351) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,12 +34,33 @@ ActiveRecord::Schema.define(version: 20161115211818) do
 
   add_index "favorites", ["user_id", "home_id"], name: "index_favorites_on_user_id_and_home_id", unique: true, using: :btree
 
+  create_table "home_tags", force: :cascade do |t|
+    t.integer  "home_id"
+    t.integer  "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "homes", force: :cascade do |t|
+    t.string   "title"
     t.string   "address"
     t.integer  "rating"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "tag_types", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.integer  "tag_type_id"
+    t.integer  "value"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -54,5 +75,8 @@ ActiveRecord::Schema.define(version: 20161115211818) do
   add_foreign_key "comments", "users"
   add_foreign_key "favorites", "homes"
   add_foreign_key "favorites", "users"
+  add_foreign_key "home_tags", "homes"
+  add_foreign_key "home_tags", "tags"
   add_foreign_key "homes", "users"
+  add_foreign_key "tags", "tag_types"
 end
