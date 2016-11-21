@@ -4,16 +4,13 @@
   <title>ChristmasLights</title>
  
  </head>
- 
-<h1 class="homePageTitle">Homes with Christmas Lights Worth Visiting</h1>
-
+ <h1 class="homePageTitle">Homes with Christmas Lights Worth Visiting</h1>
 
 <%= form_tag(homes_path, :method => "get") do %>
     <p> 
         <div class="searchLine">
-       
-        <%= select "address", "title", options_for_select(Home.all, selected: params[:address]), {prompt: 'Select Category'} %>
-        <%= submit_tag 'Filter', :name => nil, :style => 'height: 30px' %>
+        <%= text_field_tag :tag, params[:tag], :style => 'height: 30px; width: 350px' %>
+        <%= submit_tag 'Search', :name => nil, :style => 'height: 30px' %>
         </div>
     </p>
     <% if @homes.blank? %>
