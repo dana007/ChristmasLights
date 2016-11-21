@@ -18,4 +18,9 @@ class Home < ActiveRecord::Base
   def self.search(search)
     where("address LIKE ?", "%#{search}%")
   end  
+  
+  def self.filter(filter)
+    where(address_id: filter)
+    
+  end
 end
