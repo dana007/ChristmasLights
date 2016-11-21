@@ -29,9 +29,6 @@ gem 'fog', '~> 1.23.0'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'net-ssh'
 
-# Used for storing attachments in the database
-gem 'paperclip'
-
 # Use Unicorn as the app server
 # gem 'unicorn'
 
