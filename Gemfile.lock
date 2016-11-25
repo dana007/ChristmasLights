@@ -54,6 +54,7 @@ GEM
     erubis (2.7.0)
     excon (0.53.0)
     execjs (2.7.0)
+    filterrific (2.1.2)
     fog (1.23.0)
       fog-brightbox
       fog-core (~> 1.23)
@@ -172,6 +173,7 @@ PLATFORMS
 DEPENDENCIES
   carrierwave (~> 0.10.0)
   coffee-rails (~> 4.1.0)
+  filterrific
   fog (~> 1.23.0)
   jbuilder (~> 2.0)
   jquery-rails
