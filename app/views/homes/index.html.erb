@@ -6,16 +6,27 @@
  </head>
  <h1 class="homePageTitle">Homes with Christmas Lights Worth Visiting</h1>
 
-<%= form_tag(homes_path, :method => "get") do %>
-    <p> 
-        <div class="searchLine">
-        <%= text_field_tag :tag, params[:tag], :style => 'height: 30px; width: 350px' %>
-        <%= submit_tag 'Search', :name => nil, :style => 'height: 30px' %>
-        </div>
-    </p>
-    <% if @homes.blank? %>
-        <h4 class="oneLineMessage">There are no posts containing the search term, <%=params[:search]%>.</h4>
-    <% end %>    
-<% end %>    
+<%= form_for_filterrific @filterrific do |f| %>
 
+<div class='filter'>
+    
+    <p>Rating</p>
+    <%= f.select(
+      :rating,
+      @filterrific.select_options[:rating],
+      { include_blank: '- Any -' }
+    ) %>
+  </div>
+
+  
+ 
+  <%# add an automated spinner to your form when the list is refreshed %>
+  <%#<%= render_filterrific_spinner %>
+<% end %>
+<div class='results'>
+<%= render(
+  partial: 'homes/list',
+  locals: { homes: @homes }
+) %>
+</div>
 </html>

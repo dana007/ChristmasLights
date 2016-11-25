@@ -82,13 +82,22 @@ div {
     
 }
 
-.searchLine{
+.filter{
   margin-top: 100px;
   margin-left: 400px;
   background-image:url('searchicon.png');
   background-position: 10px 10px;
 
 }
+
+.results, .filterrific_results{
+  margin-top: 20px;
+  margin-left: 400px;
+  
+}
+
+
+
 
 .searchBox{
   border: 2px solid blue;
