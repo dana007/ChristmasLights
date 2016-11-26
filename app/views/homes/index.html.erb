@@ -9,11 +9,27 @@
 
 <%= form_for_filterrific @filterrific do |f| %>
   <div class='filter'>
-    <p>Rating</p>
+    State
       <%= f.select(
-        :rating,
+        :state, 
+        @filterrific.select_options[:state],
+           { include_blank: '- Select -' }
+      ) %>
+  </div>
+   <div class='filter'>
+    City
+      <%= f.select(
+       :city,  
+        @filterrific.select_options[:city],
+        { include_blank: '- Select -' }
+      ) %>
+  </div>
+   <div class='filter'>
+    Rating
+      <%= f.select(
+        :rating, 
         @filterrific.select_options[:rating],
-        { include_blank: '- Any -' }
+        { include_blank: '- Select -' }
       ) %>
   </div>
   <%# add an automated spinner to your form when the list is refreshed %>
@@ -25,17 +41,23 @@
     partial: 'homes/list',
     locals: { homes: @homes }
   ) %>
+<<<<<<< d7082f89018d731c16b9e96f949181549379fd92
   List Partials
   </div>
 Each House with link
+=======
+ 
+  </div>
+
+>>>>>>> Saving work - three filters and comment input page
    <% homes_url do |home| %>
       <tr>
         <td><%= link_to(home.rating, home_path(home)) %></td>
-        <td><%= home.address %></td>
-        <td><%= home.title %></td>
+        <td><%= home.state %></td>
+        <td><%= home.city %></td>
       </tr>
      <p>
     <%= link_to(home.rating, target: "_blank") %> - <%= link_to("Show Page", home) %>
   </p>
-    <% end %>
+  <% end %>
 </html>
