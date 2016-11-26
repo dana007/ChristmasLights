@@ -2,15 +2,13 @@
 <html>
 <head>
   <title>ChristmasLights</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'jquery-ui.min', 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag  'jquery', 'jquery-ui.min', 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <p class="headers">Logo for Christmas Lights
-    <i class="glyphicon glyphicon-home"></i>
-  </p>
 </head>
 <body>
+
+<%= render 'layouts/nav_bar' %>
 
 <%= yield %>
 
