@@ -10,26 +10,34 @@
 <img id="homeLogo" alt="home-page-logo" src="seechristmas-lights-logo.png" />
 
 <%= form_for_filterrific @filterrific do |f| %>
-
-    <div class='filter'>
-
-      <p>Rating</p>
+  <div class='filter'>
+    <p>Rating</p>
       <%= f.select(
-              :rating,
-              @filterrific.select_options[:rating],
-              { include_blank: '- Any -' }
-          ) %>
-    </div>
-
-
-
-    <%# add an automated spinner to your form when the list is refreshed %>
-    <%#<%= render_filterrific_spinner %>
+        :rating,
+        @filterrific.select_options[:rating],
+        { include_blank: '- Any -' }
+      ) %>
+  </div>
+  <%# add an automated spinner to your form when the list is refreshed %>
+  <%#<%= render_filterrific_spinner %>
 <% end %>
+
 <div class='results'>
   <%= render(
-          partial: 'homes/list',
-          locals: { homes: @homes }
-      ) %>
-</div>
+    partial: 'homes/list',
+    locals: { homes: @homes }
+  ) %>
+  List Partials
+  </div>
+Each House with link
+   <% homes_url do |home| %>
+      <tr>
+        <td><%= link_to(home.rating, home_path(home)) %></td>
+        <td><%= home.address %></td>
+        <td><%= home.title %></td>
+      </tr>
+     <p>
+    <%= link_to(home.rating, target: "_blank") %> - <%= link_to("Show Page", home) %>
+  </p>
+    <% end %>
 </html>

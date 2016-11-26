@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SelectedHouse </title>
+ 
+ </head>
+ <%#<%= link_to(@home.rating, target: "_blank") %><br/>
+<!--<small>Submitted <%#<%= time_ago_in_words(@home.created_at) %> ago</small>-->
+
+<!--<h3>Comments</h3>-->
+
+<%#<%= form_for [@home, Comment.new] do |f| %>
+<%#<%= f.text_area :body, placeholder: "Add a comment" %><br/>
+<%#<%= f.submit "Add Comment" %>
+<%#<% end %>
+<% @home = Home.new
+    @home.id = 1
+   @home.title = "Title for Show template"
+   %>
+  
+<h2><%= @home.title %></h2>
+<ul>
+    <h3>Comments: </h3>
+  <%#<%= render(partial: 'comments/comment', collection: @home.comments) %>
+ <%= form_for [@home,  Comment.new] do |f| %>
+      <%= f.text_area :user_id, placeholder: "Add a Reply" %><br/>
+      <%= f.submit "Post Comment"  %>
+      <% end %>
+
+   
+</ul>
+ 
+ 
+ 
+ </html>
+ 
