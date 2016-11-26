@@ -7,26 +7,34 @@
  <h1 class="homePageTitle">Homes with Christmas Lights Worth Visiting</h1>
 
 <%= form_for_filterrific @filterrific do |f| %>
-
-<div class='filter'>
-    
+  <div class='filter'>
     <p>Rating</p>
-    <%= f.select(
-      :rating,
-      @filterrific.select_options[:rating],
-      { include_blank: '- Any -' }
-    ) %>
+      <%= f.select(
+        :rating,
+        @filterrific.select_options[:rating],
+        { include_blank: '- Any -' }
+      ) %>
   </div>
-
-  
- 
   <%# add an automated spinner to your form when the list is refreshed %>
   <%#<%= render_filterrific_spinner %>
 <% end %>
+
 <div class='results'>
-<%= render(
-  partial: 'homes/list',
-  locals: { homes: @homes }
-) %>
-</div>
+  <%= render(
+    partial: 'homes/list',
+    locals: { homes: @homes }
+  ) %>
+  </div>
+   <% homes_url do |home| %>
+      <tr>
+        <td><%= link_to(home.title, home_path(home)) %></td>
+        <td><%= home.address %></td>
+        <td><%= home.rating %></td>
+      </tr>
+     <p>
+       <i><%=h comment.user_id %> says:</i><br />
+  <%= simple_format h(comment.home_id) %>
+    <%= link_to(home.title, target: "_blank") %> - <%= link_to("Show Page", home) %>
+  </p>
+    <% end %>
 </html>
