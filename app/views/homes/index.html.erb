@@ -24,17 +24,17 @@
     partial: 'homes/list',
     locals: { homes: @homes }
   ) %>
+  List Partials 
   </div>
+Each House with link  
    <% homes_url do |home| %>
       <tr>
-        <td><%= link_to(home.title, home_path(home)) %></td>
+        <td><%= link_to(home.rating, home_path(home)) %></td>
         <td><%= home.address %></td>
-        <td><%= home.rating %></td>
+        <td><%= home.title %></td>
       </tr>
      <p>
-       <i><%=h comment.user_id %> says:</i><br />
-  <%= simple_format h(comment.home_id) %>
-    <%= link_to(home.title, target: "_blank") %> - <%= link_to("Show Page", home) %>
+    <%= link_to(home.rating, target: "_blank") %> - <%= link_to("Show Page", home) %>
   </p>
     <% end %>
 </html>
