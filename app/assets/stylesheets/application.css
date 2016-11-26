@@ -39,6 +39,10 @@
     margin: 0 4px;
 }
 
+#nav-bar {
+    padding-bottom: 25px;
+}
+
 #nav-bar ul {
     list-style-type: none;
     margin: 0;
@@ -75,4 +79,27 @@
 /* Change the link color to #111 (black) on hover */
 #nav-bar li a:hover {
     background-color: #111;
+}
+
+.page-title {
+    color: red;
+    text-align: center;
+}
+
+#new-user-form {
+    padding-top: 25px;
+    text-align: center;
+}
+
+.p-b_5 {
+    padding-bottom: 5px;
+}
+
+input:focus {
+    background-color: white;
+}
+
+.align-left {
+    display: inline-block;
+    text-align: left
 }

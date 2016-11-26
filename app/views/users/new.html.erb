@@ -1,0 +1,18 @@
+<h1 class="page-title">User Sign-up Form</h1>
+<%= form_for @user, url: {action: "create"}, html: {id: 'new-user-form'} do |f| %>
+    <div class="align-left">
+      <div class="p-b_5">
+        <%= label_tag(:user_name, "Username: ") %>
+        <%= text_field_tag(:user_name, nil, class: 'text-input-box') %>
+      </div>
+      <div class="p-b_5">
+        <%= label_tag(:password, "Password: ") %>
+        <%= password_field_tag(:password) %>
+      </div>
+      <div class="p-b_5">
+        <%= label_tag(:password_confirmation, "Confirm Password: ") %>
+        <%= password_field_tag(:password_confirmation) %>
+      </div>
+      <%= f.submit "Sign Up" %>
+    </div>
+<% end %>

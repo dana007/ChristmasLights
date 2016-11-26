@@ -4,10 +4,9 @@
     <% if $logged_in %>
       <li><a href="#my_account">My Account</a></li>
     <% else %>
-      <li><a href="#sign_in">Sign In</a></li>
-      <li><a href="#sign_up">Sign Up</a></li>
+      <li><%= link_to "Sign In", action: :login, controller: :users %></li>
+      <li><%= link_to "Sign Up", new_user_path %></li>
     <% end %>
-    <li><a href="#home">Home</a></li>
-    <!--<li id="float-left"><img id="navLogo" alt="home-page-logo" src="seechristmas-lights-logo.png" /></li>-->
+    <li><%= link_to "Home", root_path %></li>
   </ul>
 </div>

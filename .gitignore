@@ -1,4 +1,4 @@
 *.pem
-/log/*
-/.idea/*
-/tmp/*
+/log/
+/.idea/
+/tmp/
