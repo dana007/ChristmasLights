@@ -41,15 +41,8 @@
     partial: 'homes/list',
     locals: { homes: @homes }
   ) %>
-<<<<<<< d7082f89018d731c16b9e96f949181549379fd92
-  List Partials
-  </div>
-Each House with link
-=======
- 
-  </div>
 
->>>>>>> Saving work - three filters and comment input page
+  </div>
    <% homes_url do |home| %>
       <tr>
         <td><%= link_to(home.rating, home_path(home)) %></td>
