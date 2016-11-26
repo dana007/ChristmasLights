@@ -101,5 +101,14 @@ input:focus {
 
 .align-left {
     display: inline-block;
-    text-align: left
+    text-align: left;
+}
+
+.align-center {
+    display: inline-block;
+    text-align: center;
+}
+
+#divCheckPasswordMatch {
+    color: red;
 }

@@ -17,7 +17,20 @@
 
 //= require filterrific/filterrific-jquery
 
+function checkPasswordMatch() {
+    var password = $("#password").val();
+    var confirmPassword = $("#password_confirmation").val();
+
+    if (password != confirmPassword)
+        $("#divCheckPasswordMatch").html("Passwords do not match!");
+    else
+        $("#divCheckPasswordMatch").html("");
+}
+
 $('document').ready(function() {
+
+    $("#password_confirmation").keyup(checkPasswordMatch);
+
     $( "#accordion" ).accordion();
 
 

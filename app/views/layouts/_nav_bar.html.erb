@@ -1,10 +1,11 @@
 <div id="nav-bar">
   <ul>
     <li><a href="#about">About</a></li>
-    <% if $logged_in %>
+    <% if $user != nil %>
+      <li><%= link_to "Logout", action: :logout, controller: :users %></li></li>
       <li><a href="#my_account">My Account</a></li>
     <% else %>
-      <li><%= link_to "Sign In", action: :login, controller: :users %></li>
+      <li><%= link_to "Login", users_path %></li>
       <li><%= link_to "Sign Up", new_user_path %></li>
     <% end %>
     <li><%= link_to "Home", root_path %></li>
