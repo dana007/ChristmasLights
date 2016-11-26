@@ -1,9 +1,9 @@
 <div id="nav-bar">
   <ul>
     <li><a href="#about">About</a></li>
-    <% if $user != nil %>
+    <% if cookies[:user_id] != nil %>
       <li><%= link_to "Logout", action: :logout, controller: :users %></li></li>
-      <li><a href="#my_account">My Account</a></li>
+      <li><%= link_to "My Account", user_path(cookies[:user_id]) %></li>
     <% else %>
       <li><%= link_to "Login", users_path %></li>
       <li><%= link_to "Sign Up", new_user_path %></li>

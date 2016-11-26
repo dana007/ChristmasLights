@@ -12,7 +12,8 @@ class UsersController < ApplicationController
     new_user.password = params[:password]
 
     new_user.save
-    $user = new_user
+    cookies[:user_id] = new_user.id
+    $info_message = 'Account creation successful.'
     redirect_to root_path
   end
 
@@ -24,22 +25,29 @@ class UsersController < ApplicationController
         $error_message = 'Invalid username/password. Please try again.'
         redirect_to users_path
       else
-        $user = user
+        cookies[:user_id] = user.id
         redirect_to root_path
       end
     else
-      print("OMGOMGOMGOMGOMG")
       $error_message = 'Invalid username/password. Please try again.'
       redirect_to users_path
     end
   end
 
   def logout
-    $user = nil
+    cookies.delete :user_id
     redirect_to root_path
   end
 
   def show
-    # @users = User.find(params[:id])
+    @user = User.find(params[:id])
+  end
+
+  def update
+    user = User.find(params[:id])
+    user.password = params[:password]
+    user.save
+    $info_message = 'Password update successful.'
+    redirect_to user_path(user.id)
   end
 end

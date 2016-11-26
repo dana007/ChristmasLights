@@ -17,6 +17,10 @@
 
 //= require filterrific/filterrific-jquery
 
+function showPasswordUpdateDiv() {
+    $("#change-pw-div").toggle();
+}
+
 function checkPasswordMatch() {
     var password = $("#password").val();
     var confirmPassword = $("#password_confirmation").val();
@@ -28,6 +32,10 @@ function checkPasswordMatch() {
 }
 
 $('document').ready(function() {
+
+    $( "#pw-submit-button" ).button();
+
+    $("#change-pw-div").hide();
 
     $("#password_confirmation").keyup(checkPasswordMatch);
 

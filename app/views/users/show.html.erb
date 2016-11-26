@@ -1,0 +1,37 @@
+<h1 class="page-title">My Account Info</h1>
+<% if $info_message != nil %>
+    <div class="ui-widget">
+      <div class="ui-state-highlight ui-corner-all" style="margin-top: 20px; padding: 0 .7em;">
+        <p><span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span>
+          <strong>Info:</strong> <%= $info_message %></p>
+      </div>
+    </div>
+    <% $info_message = nil %>
+<% end %>
+<%= form_for @user, url: {action: :update}, html: {id: 'new-user-form'} do |f| %>
+    <div class="p-b_5, align-left">
+      <div class="p-b_5">
+        <%= label_tag(nil, "Username: ") %>
+        <%= @user.username %>
+      </div>
+    </div>
+    <br />
+    <button type="button" onclick="showPasswordUpdateDiv();" id="button">Change Password</button>
+    <br /><br />
+    <div id="change-pw-div">
+      <div class="p-b_5 align-left">
+        <div class="p-b_5 p-t_5">
+          <%= label_tag(:password, "Password: ") %>
+          <%= password_field_tag(:password, nil, required: true) %>
+        </div>
+        <div class="p-b_5">
+          <%= label_tag(:password_confirmation, "Confirm Password: ") %>
+          <%= password_field_tag(:password_confirmation, nil, required: true, onChange: 'checkPasswordMatch();') %>
+        </div>
+      </div>
+      <div class="registrationFormAlert" id="divCheckPasswordMatch"></div>
+      <div class="align-center">
+        <%= button_tag('Submit', id: 'pw-submit-button') %>
+      </div>
+    </div>
+<% end %>
