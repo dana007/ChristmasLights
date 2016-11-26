@@ -1,4 +1,6 @@
 class Home < ActiveRecord::Base
+  attr_accessor :title, :address, :rating, :user_id
+  
   has_many :favorites
   has_many :comments
 
