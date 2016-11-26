@@ -14,6 +14,14 @@
  *= require_self
  */
 
+#homeLogo {
+    height: 30%;
+    width: 30%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 #icons {
     margin: 0;
     padding: 0;
@@ -49,6 +57,19 @@
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+}
+
+#nav-bar #float-left {
+    float: left;
+    display: block;
+    color: white;
+    text-align: left;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+#navLogo {
+    width: 8%;
 }
 
 /* Change the link color to #111 (black) on hover */

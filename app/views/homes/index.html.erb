@@ -2,31 +2,34 @@
 <html>
 <head>
   <title>ChristmasLights</title>
- 
- </head>
- <h1 class="homePageTitle">Homes with Christmas Lights Worth Visiting</h1>
+
+</head>
+
+<!--<h1 id="homePageTitle">christmas lights</h1>-->
+
+<img id="homeLogo" alt="home-page-logo" src="seechristmas-lights-logo.png" />
 
 <%= form_for_filterrific @filterrific do |f| %>
 
-<div class='filter'>
-    
-    <p>Rating</p>
-    <%= f.select(
-      :rating,
-      @filterrific.select_options[:rating],
-      { include_blank: '- Any -' }
-    ) %>
-  </div>
+    <div class='filter'>
 
-  
- 
-  <%# add an automated spinner to your form when the list is refreshed %>
-  <%#<%= render_filterrific_spinner %>
+      <p>Rating</p>
+      <%= f.select(
+              :rating,
+              @filterrific.select_options[:rating],
+              { include_blank: '- Any -' }
+          ) %>
+    </div>
+
+
+
+    <%# add an automated spinner to your form when the list is refreshed %>
+    <%#<%= render_filterrific_spinner %>
 <% end %>
 <div class='results'>
-<%= render(
-  partial: 'homes/list',
-  locals: { homes: @homes }
-) %>
+  <%= render(
+          partial: 'homes/list',
+          locals: { homes: @homes }
+      ) %>
 </div>
 </html>
