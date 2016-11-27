@@ -8,7 +8,7 @@ class Home < ActiveRecord::Base
   has_many :tags, through: :home_tags
   
   filterrific(
-  
+  default_filter_params: {rating: 'created_at_desc'},
   available_filters: [
     :state,
     :city,
@@ -16,15 +16,15 @@ class Home < ActiveRecord::Base
     
   ]
 )
-scope :rating, lambda { |states|
+scope :with_state, lambda { |states|
   where(state: [*states])
 }
 
-scope :rating, lambda { |cities|
+scope :with_city, lambda { |cities|
   where(city: [*cities])
 }
 
-scope :rating, lambda { |ratings|
+scope :with_rating, lambda { |ratings|
   where(rating: [*ratings])
 }
 
