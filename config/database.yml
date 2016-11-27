@@ -8,4 +8,4 @@ development:
   <<: *default
   database: xmas_lights
   username: root
-  password: SW3632!! #<%= ENV['RAILS_DB_PWD'] %>
+  password: <%= ENV['RAILS_DB_PWD'] %>
