@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 
     new_user.save
     cookies[:user_id] = new_user.id
-    $info_message = 'Account creation successful.'
+    $info_message = 'Account created successfully.'
     redirect_to root_path
   end
 
@@ -36,6 +36,7 @@ class UsersController < ApplicationController
 
   def logout
     cookies.delete :user_id
+    $info_message = 'You have logged out successfully.'
     redirect_to root_path
   end
 
@@ -47,7 +48,7 @@ class UsersController < ApplicationController
     user = User.find(params[:id])
     user.password = params[:password]
     user.save
-    $info_message = 'Password update successful.'
+    $info_message = 'Password updated successfully.'
     redirect_to user_path(user.id)
   end
 end
