@@ -10,18 +10,36 @@ class Home < ActiveRecord::Base
   filterrific(
   
   available_filters: [
+    :state,
+    :city,
     :rating
     
   ]
 )
+scope :rating, lambda { |states|
+  where(state: [*states])
+}
+
+scope :rating, lambda { |cities|
+  where(city: [*cities])
+}
 
 scope :rating, lambda { |ratings|
   where(rating: [*ratings])
 }
 
 def self.options_for_select
-  order('rating').map { |e| [e.rating, e.id] }
+  order('state').map { |e| [e.state, e.id] }
 end
+
+# def self.options_for_sorted_by
+#     [
+#       ['State (a-z)', 'state_asc'],
+#       ['City (a-z)', 'city_asc'],
+#       ['Ratings (1-5)', 'rating_asc']
+#     ]
+
+# end
 
   
   # def self.search(search)
@@ -34,12 +52,12 @@ end
   #   end    
   # end
   
-  def self.search(search)
-    where("address LIKE ?", "%#{search}%")
-  end  
+  # def self.search(search)
+  #   where("address LIKE ?", "%#{search}%")
+  # end  
   
-  def self.filter(filter)
-    where(address_id: filter)
+  # def self.filter(filter)
+  #   where(address_id: filter)
     
-  end
+  # end
 end

@@ -18,15 +18,41 @@
 
 <%= form_for_filterrific @filterrific do |f| %>
   <div class='filter'>
-    <p>Rating</p>
+    State
       <%= f.select(
-        :rating,
-        @filterrific.select_options[:rating],
-        { include_blank: '- Any -' }
+        :state, 
+        @filterrific.select_options[:state],
+           { include_blank: '- Select -' }
       ) %>
+  &nbsp &nbsp
+  
+    City
+      <%= f.select(
+       :city,  
+        @filterrific.select_options[:city],
+        { include_blank: '- Select -' }
+      ) %>
+ 
+   &nbsp &nbsp
+   
+    Rating
+      <%= f.select(
+        :rating, 
+        @filterrific.select_options[:rating],
+        { include_blank: '- Select -' }
+      ) %>
+      &nbsp &nbsp &nbsp
+      
+       <%= link_to(
+      'Reset filters',
+      reset_filterrific_url,
+    ) %>
   </div>
   <%# add an automated spinner to your form when the list is refreshed %>
-  <%#<%= render_filterrific_spinner %>
+   <%#<%= render_filterrific_spinner %>
+  
+  </div>
+  
 <% end %>
 
 <div class='results'>
@@ -34,17 +60,17 @@
     partial: 'homes/list',
     locals: { homes: @homes }
   ) %>
-  List Partials
   </div>
-Each House with link
+
+
    <% homes_url do |home| %>
       <tr>
         <td><%= link_to(home.rating, home_path(home)) %></td>
-        <td><%= home.address %></td>
-        <td><%= home.title %></td>
+        <td><%= home.state %></td>
+        <td><%= home.city %></td>
       </tr>
      <p>
     <%= link_to(home.rating, target: "_blank") %> - <%= link_to("Show Page", home) %>
   </p>
-    <% end %>
+  <% end %>
 </html>

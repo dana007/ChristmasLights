@@ -6,6 +6,8 @@ class HomesController < ApplicationController
       Home,
       params[:filterrific],
       select_options: {
+        state: Home.options_for_select,
+        city: Home.options_for_select,
         rating: Home.options_for_select
        
       },
@@ -57,6 +59,6 @@ end
 
   private
   def home_params
-    params.require(home).permit(:title, :address, :rating)
+    params.require(home).permit(:title, :state, :city, :rating)
   end
   

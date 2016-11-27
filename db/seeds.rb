@@ -8,8 +8,9 @@
 
 
 #homes = Home.create([{address: 'Vienna' }, { address: 'Fairfax' }, { address: 'Leesburg' }])
-#homes = Home.create([{title: 'House 4', address: 'Vienna', rating: 5 }, {title: 'House 5', address: 'Fairfax', rating: 2 }, {title: 'House 6', address: 'Leesburg', rating: 4 }])
+homes = Home.create([{title: 'House 4',  state: 'VA', city: 'Vienna', rating: 5 }, 
+{title: 'House 5',  state: 'VA',city: 'Fairfax', rating: 2 }, {title: 'House 6',  state: 'MD', city: 'Chevy Chase', rating: 4 }])
 
-Home.create(title: 'House 1', address: 'McLean', rating: 5)
-Home.create(title: 'House 2', address: 'Ashburn', rating: 4)
-Home.create(title: 'House 3', address: 'Fairfax', rating: 2)
+#Home.create(title: 'House 1', state: 'VA', city: 'McLean', rating: 5)
+#Home.create(title: 'House 2', state: 'MD',city: 'Chevy Chase', rating: 4)
+#Home.create(title: 'House 3', state: 'VA',city: 'Fairfax', rating: 3)
