@@ -22,11 +22,11 @@ class HomesController < ApplicationController
     # e.g., to apply permissions or to hard coded exclude certain types of records.
     #@homes = @filterrific.find.page(params[:page])
 
-    # Respond to html for initial page load and to js for AJAX filter updates.
-    respond_to do |format|
-      format.html
-      format.js
-    end
+      # Respond to html for initial page load and to js for AJAX filter updates.
+      respond_to do |format|
+        format.html
+        format.js
+      end
 
   # Recover from invalid param sets, e.g., when a filter refers to the
   # database id of a record that doesn’t exist any more.
@@ -36,29 +36,49 @@ class HomesController < ApplicationController
     puts "Had to reset filterrific params: #{ e.message }"
     redirect_to(reset_filterrific_url(format: :html)) and return
   end
-end
 
   def create
-    @home = Home.new(home_params)
-
-    @home.save
-    redirect_to action: :index
   end
 
   def show
-    
-  #Rails.logger.debug("Dana XXX We are here")
+    #Rails.logger.debug("Dana XXX We are here")
     #console.log ("Dana: id: " +  params[:id])
     @home = Home.find(params[:id])
     #debugger
     #@home = Home.new(id: 1, title: 'test 2',address: 'Fairfax', rating: 4 )
     #@home = Home.new
-   # @home.rating = 4
-    
+    # @home.rating = 4
+  end
+
+  def user_homes
+    user_id = cookies[:user_id]
+
+    @filterrific = initialize_filterrific(
+      Home,
+      params[:filterrific],
+      select_options: {
+          sorted_by: Home.options_for_sorted_by,
+          with_user_id: user_id,
+          with_city: Home.city_options_for_select
+      },
+      persistence_id: 'shared_key'
+    ) or return
+
+    @homes = @filterrific.find.page(params[:page])
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+
+  rescue ActiveRecord::RecordNotFound => e
+    puts "Had to reset filterrific params: #{e.message}"
+    redirect_to(reset_filterrific_url(format: :html)) and return
   end
 
   private
   def home_params
     params.require(home).permit(:title, :state, :city, :rating)
   end
-  
+
+end

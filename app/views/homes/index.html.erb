@@ -22,29 +22,29 @@
   <div class='filter'>
     State
       <%= f.select(
-        :state, 
+        :state,
         @filterrific.select_options[:state],
            { include_blank: '- Select -' }
       ) %>
   &nbsp &nbsp
-  
+
     City
       <%= f.select(
-       :city,  
+       :city,
         @filterrific.select_options[:city],
         { include_blank: '- Select -' }
       ) %>
- 
+
    &nbsp &nbsp
-   
+
     Rating
       <%= f.select(
-        :rating, 
+        :rating,
         @filterrific.select_options[:rating],
         { include_blank: '- Select -' }
       ) %>
       &nbsp &nbsp &nbsp
-      
+
        <%= link_to(
       'Reset filters',
       reset_filterrific_url,
@@ -52,9 +52,9 @@
   </div>
   <%# add an automated spinner to your form when the list is refreshed %>
    <%#<%= render_filterrific_spinner %>
-  
+
   </div>
-  
+
 <% end %>
 
 <div class='results'>

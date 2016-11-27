@@ -33,6 +33,11 @@ gem 'filterrific'
 # Used for storing attachments in the database
 gem 'paperclip'
 
+gem 'will_paginate'
+gem 'will_paginate-bootstrap'
+gem 'bootstrap-sass'
+gem 'chardinjs-rails'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

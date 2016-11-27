@@ -10,6 +10,9 @@ Rails.application.routes.draw do
 
   resources :homes do
     resources :comments
+    collection do
+      get 'user_homes'
+    end
   end
 
   #resources :comments do

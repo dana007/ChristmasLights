@@ -14,8 +14,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-
 //= require filterrific/filterrific-jquery
+//= require chardinjs
 
 function showPasswordUpdateDiv() {
     $("#change-pw-div").toggle();
