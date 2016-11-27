@@ -6,6 +6,9 @@
             <%= label_tag 'City' %>
             <%= f.select :with_city, @filterrific.select_options[:with_city], {:include_blank => '- Any -'}, {class: 'form-control'} %>
           </div>
+          <div class="linkTo">
+      <%= link_to("View", "homes#show") %>
+    </div>
         </div>
         <div class="col-md-3">
           <div class="form-group chardin_box">

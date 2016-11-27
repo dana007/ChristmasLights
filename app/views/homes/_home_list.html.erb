@@ -26,7 +26,10 @@
       <td class="state"><%= home.state %></td>
       <td class="neighborhood"><%= home.neighborhood %></td>
       <td class="rating"><%= home.rating %></td>
-      <td class="created_at"><%= home.decorated_created_at %></td>
+      <td class="created_at"><%= home.decorated_created_at %>  
+       <div class="linkTo">
+        <%= link_to("View", home_path(home.id)) %></td>
+       </div> 
     </tr>
   <% end %>
 </table>
