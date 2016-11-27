@@ -22,10 +22,22 @@
 <ul>
     <h3>Comments: </h3>
   <%#<%= render(partial: 'comments/comment', collection: @home.comments) %>
- <%= form_for [@home,  Comment.new] do |f| %>
-      <%= f.text_area :user_id, placeholder: "Add a Comment" %><br/>
-      <%= f.submit "Post Comment"  %>
-      <% end %>
+    <%= form_for [@home,  Comment.new] do |f| %>
+     <%= f.text_area :content, placeholder: "Add a Comment" %><br/>
+     <%= f.submit "Post Comment"  %>
+    <% end %>
+    
+    <div class='comments'>
+        Comments History
+        <% if @home.comments.any? %>
+            <h3>Commeny History</h3>
+            <ol>
+                <%=  render @comments %>
+            </ol>
+            <%= will_paginate @comments %>
+        <% end %>    
+    </div>  
+       
 
    
 </ul>
