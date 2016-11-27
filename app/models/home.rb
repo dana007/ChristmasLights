@@ -69,39 +69,24 @@ class Home < ActiveRecord::Base
     end
   }
 
-  def self.options_for_select
-    order('rating').map { |e| [e.rating, e.id] }
-  end
-
   def self.options_for_sorted_by
     [
         ['Post date (newest first)', 'created_at_desc'],
         ['Post date (oldest first)', 'created_at_asc']
     ]
   end
+  
+  def self.state_options_for_select
+    order('state').map { |e| [e.state, e.id] }
+  end
 
   def self.city_options_for_select
     order('LOWER(city)').map{|e| [e.city]}
   end
-
-
-  # def self.search(search)
-  #   if search
-  #     find(:all, :conditions => ['address ILIKE ?', "%#{search}%"])
-  #     #@homes = Home.search(params[:search])
-  #   else
-  #     find(:all)
-  #     #@homes = Home.all
-  #   end    
-  # end
   
-  # def self.search(search)
-  #   where("address LIKE ?", "%#{search}%")
-  # end
-  
-  # def self.filter(filter)
-  #   where(address_id: filter)
-  # end
+  def self.rating_options_for_select
+    order('rating').map { |e| [e.rating, e.id] }
+  end
 
   def decorated_created_at
     created_at.to_date.to_s(:long)

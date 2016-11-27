@@ -1,28 +1,46 @@
 <%# app/views/homes/_list.html.erb %>
+<div class="well well-small">
+  <div class="pull-right">
+    <%= link_to "Reset Filters", reset_filterrific_url, class: 'btn btn-default btn-sm' %>
+  </div>
+  <div class="chardin_box">
+    <%= page_entries_info homes, model: 'home' %>
+  </div>
+  <div class="chardin_box">
+    <%= render_filterrific_spinner %>
+  </div>
+</div>
 <div id="filterrific_results">
-
   <div>
     <%#<%= page_entries_info homes # provided by will_paginate %>
   </div>
+    <h3>Search Results</h3>
+    <div class="linkTo">
+      <%= link_to("Show Homes Posted by me", user_homes_homes_url) %>
+    </div>
 
-  <table>
+ <table class="table">
     <tr>
-      <th>Search Results</th>
-    
+      <th>Title</th>
+     
+      <th>City</th>
+      <th>State</th>
+      <th>Post Date</th>
       
     </tr>
-    <%#<% homes.each do |home| %>
-      <!--<tr>-->
-      <!--  <td><%#<%= link_to(home.title, home_path(home)) %></td>-->
-      <!--  <td><%#<%= home.address %></td>-->
-      <!--  <td><%#<%= home.rating %></td>-->
+    <% homes.each do |home| %>
+      <tr class="home">
+        <td class="title"><%= home.title %></td>
         
-      <!--</tr>-->
-    <%#<% end %>
+        <td class="city"><%= home.city %></td>
+        <td class="state"><%= home.state %></td>
+        <td class="created_at"><%= home.decorated_created_at %></td>
+        
+      </tr>
+    <% end %>
   </table>
-  <% home = Home.new(id: 1, title: 'test 1', city: 'Vienna', rating: 5) %>
-  <%= link_to("Show Page XX4", home_path(home.id)) %>
-  
 </div>
 
-<%#<%= will_paginate homes # provided by will_paginate %>
+<div class="chardin_box">
+  <%= will_paginate homes, renderer: BootstrapPagination::Rails %>
+</div>

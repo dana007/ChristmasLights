@@ -6,24 +6,18 @@ class HomesController < ApplicationController
       Home,
       params[:filterrific],
       select_options: {
-        state: Home.options_for_select,
-        city: Home.options_for_select,
-        rating: Home.options_for_select
-       
+        sorted_by: Home.options_for_sorted_by,
+          with_state: Home.state_options_for_select,
+          with_city: Home.city_options_for_select,
+          with_rating: Home.rating_options_for_select
       },
       persistence_id: 'shared_key',
       default_filter_params: {},
       available_filters: [],
     ) or return
-    # Get an ActiveRecord::Relation for all students that match the filter settings.
-    # You can paginate with will_paginate or kaminari.
-    # NOTE: filterrific_find returns an ActiveRecord Relation that can be
-    # chained with other scopes to further narrow down the scope of the list,
-    # e.g., to apply permissions or to hard coded exclude certain types of records.
-    #@homes = @filterrific.find.page(params[:page])
 
-      # Respond to html for initial page load and to js for AJAX filter updates.
-      respond_to do |format|
+    @homes = @filterrific.find.page(params[:page])
+        respond_to do |format|
         format.html
         format.js
       end
