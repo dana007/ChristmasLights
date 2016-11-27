@@ -16,7 +16,7 @@ class Home < ActiveRecord::Base
   # image_file_size: integer
   # image_updated_at: timestamp
 
-  attr_accessor :rating, :user_id
+  attr_accessor :user_id
   
   has_many :favorites
   has_many :comments
@@ -28,7 +28,6 @@ class Home < ActiveRecord::Base
       default_filter_params: { sorted_by: 'created_at_desc' },
       available_filters: [
           :sorted_by,
-          :with_rating,
           :with_city,
           :with_state,
           :with_neighborhood,
@@ -38,10 +37,6 @@ class Home < ActiveRecord::Base
 
   # default for will_paginate
   self.per_page = 10
-
-  scope :with_rating, lambda { |ratings|
-    where(rating: [*ratings])
-  }
 
   scope :with_city, lambda { |cities|
     where(city: [*cities])
@@ -64,29 +59,55 @@ class Home < ActiveRecord::Base
     case sort_option.to_s
       when /^created_at_/
         order("homes.created_at #{direction}")
+      when /^rating_/
+        order("homes.rating #{direction}")
       else
         raise(ArgumentError, "Invalid sort option: #{sort_option.inspect}")
     end
   }
 
+  def self.options_for_select
+    order('rating').map { |e| [e.rating, e.id] }
+  end
+
   def self.options_for_sorted_by
     [
         ['Post date (newest first)', 'created_at_desc'],
-        ['Post date (oldest first)', 'created_at_asc']
+        ['Post date (oldest first)', 'created_at_asc'],
+        ['Rating (highest first)', 'rating_desc'],
+        ['Rating (lowest first)', 'rating_asc']
     ]
-  end
-  
-  def self.state_options_for_select
-    order('state').map { |e| [e.state, e.id] }
   end
 
   def self.city_options_for_select
-    order('LOWER(city)').map{|e| [e.city]}
+    order('LOWER(city)').map{|e| [e.city]} - [[''], [nil]]
   end
+
+  def self.state_options_for_select
+    order('LOWER(state)').map{|e| [e.state]}.uniq - [[''], [nil]]
+  end
+
+  def self.neighborhood_options_for_select
+    order('LOWER(neighborhood)').map{|e| [e.neighborhood]}.uniq - [[''], [nil]]
+  end
+
+  # def self.search(search)
+  #   if search
+  #     find(:all, :conditions => ['address ILIKE ?', "%#{search}%"])
+  #     #@homes = Home.search(params[:search])
+  #   else
+  #     find(:all)
+  #     #@homes = Home.all
+  #   end    
+  # end
   
-  def self.rating_options_for_select
-    order('rating').map { |e| [e.rating, e.id] }
-  end
+  # def self.search(search)
+  #   where("address LIKE ?", "%#{search}%")
+  # end
+  
+  # def self.filter(filter)
+  #   where(address_id: filter)
+  # end
 
   def decorated_created_at
     created_at.to_date.to_s(:long)
