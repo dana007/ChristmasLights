@@ -1,24 +1,2 @@
 <h1 class="page-title">My Homes</h1>
-
-<div class="well">
-  <%= form_for_filterrific @filterrific do |f| %>
-    <div class="row">
-      <div class="col-md-2">
-        <div class="form-group chardin_box">
-          <%= label_tag 'City' %>
-          <%= f.select :with_city, @filterrific.select_options[:with_city], {:include_blank => '- Any -'}, {class: 'form-control'} %>
-        </div>
-      </div>
-      <div class="col-md-2">
-        <div class="form-group chardin_box">
-          <%= label_tag 'Sorted by' %>
-          <%= f.select :sorted_by, @filterrific.select_options[:sorted_by], {class: 'form-control'} %>
-        </div>
-      </div>
-    </div>
-  <% end %>
-</div>
-
-<div id="filterrific_results">
-  <%= render(partial: 'homes/home_list', locals: {homes: @homes}) %>
-</div>
+<%= render(partial: 'homes/filter_homes') %>

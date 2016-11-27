@@ -14,12 +14,18 @@
   <tr>
     <th>Title</th>
     <th>City</th>
+    <th>State</th>
+    <th>Neighborhood</th>
+    <th>Rating</th>
     <th>Post Date</th>
   </tr>
   <% homes.each do |home| %>
     <tr class="home">
       <td class="title"><%= home.title %></td>
       <td class="city"><%= home.city %></td>
+      <td class="state"><%= home.state %></td>
+      <td class="neighborhood"><%= home.neighborhood %></td>
+      <td class="rating"><%= home.rating %></td>
       <td class="created_at"><%= home.decorated_created_at %></td>
     </tr>
   <% end %>
