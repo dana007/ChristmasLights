@@ -51,14 +51,9 @@
     partial: 'homes/list',
     locals: { homes: @homes }
   ) %>
-<<<<<<< HEAD
-
   </div>
 
-=======
 
-  </div>
->>>>>>> a1b2e3f86f18491577ee6882e931b0d69a8534ae
    <% homes_url do |home| %>
       <tr>
         <td><%= link_to(home.rating, home_path(home)) %></td>
