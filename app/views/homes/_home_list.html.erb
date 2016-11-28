@@ -12,6 +12,7 @@
 
 <table class="table">
   <tr>
+    <th>Photo</th>
     <th>Title</th>
     <th>City</th>
     <th>State</th>
@@ -20,16 +21,20 @@
     <th>Post Date</th>
   </tr>
   <% homes.each do |home| %>
-    <tr class="home">
+    <!--<tr class="home" data-href='homes/<<%#%= home.id %>'>-->
+      <tr class="home" data-href="<%= home_path(home.id) %>">
+      <!--<td><%#<%= image_tag @home.image_file_name.url %></td>-->
+      <td>Thumbnail</td>
       <td class="title"><%= home.title %></td>
       <td class="city"><%= home.city %></td>
       <td class="state"><%= home.state %></td>
       <td class="neighborhood"><%= home.neighborhood %></td>
       <td class="rating"><%= home.rating %></td>
       <td class="created_at"><%= home.decorated_created_at %>  
-       <div class="linkTo">
-        <%= link_to("View", home_path(home.id)) %></td>
-       </div> 
+       <!--<div class="linkTo">-->
+       <!-- <%#<%= link_to("View", home_path(home.id)) %></td>-->
+       <!--</div> -->
+       
     </tr>
   <% end %>
 </table>

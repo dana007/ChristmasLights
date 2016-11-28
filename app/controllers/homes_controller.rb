@@ -29,13 +29,9 @@ class HomesController < ApplicationController
   end
 
   def show
-    #Rails.logger.debug("Dana XXX We are here")
-    #console.log ("Dana: id: " +  params[:id])
+    
     @home = Home.find(params[:id])
-    #debugger
-    #@home = Home.new(id: 1, title: 'test 2',address: 'Fairfax', rating: 4 )
-    #@home = Home.new
-    # @home.rating = 4
+   
   end
 
   def user_homes

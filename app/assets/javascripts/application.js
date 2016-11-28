@@ -33,6 +33,11 @@ function checkPasswordMatch() {
 
 $('document').ready(function() {
 
+    $(".home").click(function() {
+       
+        window.document.location = $(this).data("href");
+    });
+   
     $( "#pw-submit-button" ).button();
 
     $("#change-pw-div").hide();
