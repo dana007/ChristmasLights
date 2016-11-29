@@ -13,7 +13,10 @@
 </div>
 <div>
     Address:
-    <%= @home.street_address %>
+    <%#<%= @home.street_address %>
+    <%= @home.city %>
+    <%= @home.state %>
+    <%= @home.zip_code %>
 </div>
 <ul>
     <h3>Comments: </h3>
@@ -21,14 +24,18 @@
  <%= render(partial: 'comments/comment') %>
  
     <div class='comments'>
-        Comments History
+         <h4>Comment History</h4>
         <% if @home.comments.any? %>
-            <h3>Commeny History</h3>
+           <% @home.comments.each do |comment| %>
             <ol>
-                <%=  render @comments %>
+                <%=  comment.content %>
             </ol>
-            <%= will_paginate @comments %>
-        <% end %>    
+            <% end %>
+            <%#<%= will_paginate @home.comments %>
+        <% else %>
+            No comments to display.
+        <% end %>   
+        
     </div>  
 </ul>
  </html>
