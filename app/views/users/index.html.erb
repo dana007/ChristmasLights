@@ -1,13 +1,4 @@
 <h1 class="page-title">User Login Form</h1>
-<% if $error_message != nil %>
-  <div class="ui-widget">
-    <div class="ui-state-error ui-corner-all" style="padding: 0 .7em;">
-      <p><span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span>
-        <strong>Error:</strong> <%= $error_message %></p>
-    </div>
-  </div>
-  <% $error_message = nil %>
-<% end %>
 <%= form_tag({action: 'login'}, id: 'new-user-form') do |f| %>
     <div class="p-b_5, align-left">
       <div class="p-b_5">

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161127002612) do
+ActiveRecord::Schema.define(version: 20161128002051) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,10 +44,14 @@ ActiveRecord::Schema.define(version: 20161127002612) do
 
   create_table "homes", force: :cascade do |t|
     t.string   "title"
-    t.integer  "rating"
+    t.integer  "rating",                 default: 0
     t.integer  "user_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+    t.string   "thumbnail_file_name"
+    t.string   "thumbnail_content_type"
+    t.integer  "thumbnail_file_size"
+    t.datetime "thumbnail_updated_at"
     t.string   "street_address"
     t.string   "city"
     t.string   "state"

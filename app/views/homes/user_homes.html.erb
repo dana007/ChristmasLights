@@ -1,2 +1,10 @@
-<h1 class="page-title">My Homes</h1>
+<div>
+  <h1 class="page-title">My Homes</h1>
+</div>
+<div>
+<div class="pull-right">
+  <%= button_to 'Add Home', new_home_path, method: :get, id: 'button' %>
+</div>
+  <br/>
+</div>
 <%= render(partial: 'homes/filter_homes') %>

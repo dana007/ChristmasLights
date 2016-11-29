@@ -1,0 +1,39 @@
+<h1 class="page-title">Add Home Form</h1>
+<h5 class="page-title">*Please note that all fields are required*</h5>
+<%= form_for @home, url: homes_path, html: { multipart: true, id: 'add-home-form' } do |f| %>
+<!--%= form_tag({action: 'create'}, html: {multipart: true}, id: 'add-home-form') do |f| %-->
+    <div class="p-b_5 align-left">
+      <div class="p-b_5">
+        <%= label_tag(:title, "Title: ") %>
+        <%= f.text_field :title, html: {class: 'text-input-box'}, required: true %>
+      </div>
+      <div class="p-b_5">
+        <%= label_tag(:street_address, "Street Address: ") %>
+        <%= f.text_field :street_address, html: {class: 'text-input-box'}, required: true %>
+      </div>
+      <div class="p-b_5">
+        <%= label_tag(:city, "City: ") %>
+        <%= f.text_field :city, html: {class: 'text-input-box'}, required: true %>
+      </div>
+      <div class="p-b_5">
+        <%= label_tag(:state, "State: ") %>
+        <%= f.text_field :state, html: {class: 'text-input-box'}, required: true %>
+      </div>
+      <div class="p-b_5">
+        <%= label_tag(:zip_code, "Zip Code: ") %>
+        <%= f.text_field :zip_code, html: {class: 'text-input-box'}, required: true %>
+      </div>
+      <div class="p-b_5">
+        <%= label_tag(:neighborhood, "Neighborhood: ") %>
+        <%= f.text_field :neighborhood, html: {class: 'text-input-box'}, required: true %>
+      </div>
+      <div class="p-b_5">
+        <%= label_tag(:image, "Upload Image: ") %>
+        <%= f.file_field :image, required: true %>
+      </div>
+    </div>
+    <br />
+    <div class="align-center">
+      <%= button_tag('Add Home', id: 'button') %>
+    </div>
+<% end %>

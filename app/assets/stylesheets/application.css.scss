@@ -24,84 +24,89 @@
 @import 'chardinjs.css';
 
 #homeLogo {
-    height: 30%;
-    width: 30%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+  height: 30%;
+  width: 30%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #icons {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 #icons li {
-    margin: 2px;
-    position: relative;
-    padding: 4px 0;
-    cursor: pointer;
-    float: left;
-    list-style: none;
+  margin: 2px;
+  position: relative;
+  padding: 4px 0;
+  cursor: pointer;
+  float: left;
+  list-style: none;
 }
 #icons span.ui-icon {
-    float: left;
-    margin: 0 4px;
+  float: left;
+  margin: 0 4px;
 }
 
 #nav-bar {
-    padding-bottom: 25px;
+  padding-bottom: 25px;
 }
 
 #nav-bar ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: green;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: green;
 }
 
 #nav-bar li {
-    float: right;
+  float: right;
 }
 
 #nav-bar li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
 }
 
 #nav-bar #float-left {
-    float: left;
-    display: block;
-    color: white;
-    text-align: left;
-    padding: 14px 16px;
-    text-decoration: none;
+  float: left;
+  display: block;
+  color: white;
+  text-align: left;
+  padding: 14px 16px;
+  text-decoration: none;
 }
 
 #navLogo {
-    width: 8%;
+  width: 8%;
 }
 
 /* Change the link color to #111 (black) on hover */
 #nav-bar li a:hover {
-    background-color: #111;
+  background-color: #111;
 }
 
 .page-title {
-    color: red;
-    text-align: center;
+  color: red;
+  text-align: center;
 }
 
 #new-user-form {
-    padding-top: 25px;
-    text-align: center;
+  padding-top: 25px;
+  text-align: center;
+}
+
+#add-home-form {
+  padding-top: 25px;
+  text-align: center;
 }
 
 .p-b_5 {
-    padding-bottom: 5px;
+  padding-bottom: 5px;
 }
 
 .p-b_15 {
@@ -109,45 +114,61 @@
 }
 
 .p-t_5 {
-    padding-top: 5px;
+  padding-top: 5px;
 }
 
 input:focus {
-    background-color: white;
+  background-color: white;
 }
 
 .align-left {
-    display: inline-block;
-    text-align: left;
+  display: inline-block;
+  text-align: left;
+}
+
+.align-right {
+  display: inline-block;
+  text-align: right;
 }
 
 .align-center {
-    display: inline-block;
-    text-align: center;
+  display: inline-block;
+  text-align: center;
 }
 
 #divCheckPasswordMatch {
-    color: red;
+  color: red;
 }
 
 #change-pw-div {
-    display: none;
-    border: green;
-    border-style: solid;
+  display: none;
+  border: green;
+  border-style: solid;
 }
 
 #filterrific_filter {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .chardin_box {
-    display: inline-block;
-    padding: 0 3px;
+  display: inline-block;
+  padding: 0 3px;
 }
 
-
-.title { 
-   display: block; 
+.title {
+   display: block;
    border: 1px blue;
-   padding: 16px; 
+   padding: 16px;
+}
+
+.left-title {
+  float: left;
+  text-align: right;
+  display: inline-block;
+}
+
+.right-title {
+  float: left;
+  text-align: left;
+  display: inline-block;
 }

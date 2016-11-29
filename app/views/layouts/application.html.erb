@@ -19,6 +19,26 @@
 
 <%= render 'layouts/nav_bar' %>
 
+<% if $info_message != nil %>
+    <div class="ui-widget">
+      <div class="ui-state-highlight ui-corner-all" style="margin-top: 20px; padding: 0 .7em;">
+        <p><span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span>
+          <strong>Info:</strong> <%= $info_message %></p>
+      </div>
+    </div>
+    <% $info_message = nil %>
+<% end %>
+
+<% if $error_message != nil %>
+    <div class="ui-widget">
+      <div class="ui-state-error ui-corner-all" style="padding: 0 .7em;">
+        <p><span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span>
+          <strong>Error:</strong> <%= $error_message %></p>
+      </div>
+    </div>
+    <% $error_message = nil %>
+<% end %>
+
 <div class="container">
   <%= yield %>
 </div>

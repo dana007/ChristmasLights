@@ -1,13 +1,3 @@
-<% if $info_message != nil %>
-    <div class="ui-widget">
-      <div class="ui-state-highlight ui-corner-all" style="margin-top: 20px; padding: 0 .7em;">
-        <p><span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span>
-          <strong>Info:</strong> <%= $info_message %></p>
-      </div>
-    </div>
-    <% $info_message = nil %>
-<% end %>
-
 <img id="homeLogo" class="p-b_15" alt="home-page-logo" src="/seechristmas-lights-logo.png" />
 
 <%= render(partial: 'homes/filter_homes') %>

@@ -16,8 +16,9 @@ class Home < ActiveRecord::Base
   # image_file_size: integer
   # image_updated_at: timestamp
 
-  attr_accessor :user_id
-  
+  has_attached_file :image
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
+
   has_many :favorites
   has_many :comments
 
@@ -80,7 +81,7 @@ class Home < ActiveRecord::Base
   end
 
   def self.city_options_for_select
-    order('LOWER(city)').map{|e| [e.city]} - [[''], [nil]]
+    order('LOWER(city)').map{|e| [e.city]}.uniq - [[''], [nil]]
   end
 
   def self.state_options_for_select
