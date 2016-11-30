@@ -2,40 +2,52 @@
 <html>
 <head>
   <title>SelectedHouse </title>
- 
+ <img id="homeLogo" class="p-b_15" alt="home-page-logo" src="/seechristmas-lights-logo.png" />
  </head>
  <%#<%= link_to(@home.rating, target: "_blank") %><br/>
 <!--<small>Submitted <%#<%= time_ago_in_words(@home.created_at) %> ago</small>-->
 
-<h2 class="page-title">Christmas Home Information</h2>
-<div>
-    Picture
-</div>
-<div>
-    Address:
-    <%#<%= @home.street_address %>
-    <%= @home.city %>
-    <%= @home.state %>
-    <%= @home.zip_code %>
-</div>
-<ul>
-    <h3>Comments: </h3>
- <%#<%= render(partial: 'comments/comment', collection: @home.comments) %>
- <%= render(partial: 'comments/comment') %>
- 
-    <div class='comments'>
-         <h4>Comment History</h4>
-        <% if @home.comments.any? %>
-           <% @home.comments.each do |comment| %>
-            <ol>
-                <%=  comment.content %>
-            </ol>
-            <% end %>
-            <%#<%= will_paginate @home.comments %>
-        <% else %>
-            No comments to display.
-        <% end %>   
-        
+<h3 class="page-title">Christmas Home Information</h3>
+<div class="div_above">
+    <div class="col-md-4">
+        <div>
+            Picture
+            <p>
+              <strong><%= @home.title%></strong>
+                  <%= image_tag @home.image_file_name %>
+            </p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div>
+            Address:
+            <%= @home.street_address %>
+            <%= @home.city %>
+            <%= @home.state %>
+            <%= @home.zip_code %>
+        </div>
+    </div>
+    <div class="col-md-4">
+        Google Map here
     </div>  
-</ul>
+</div>    
+    <div class="col-md-12 comments_span">
+        <ul>
+            <%#<%= render(partial: 'comments/comment', collection: @home.comments) %>
+            <%= render(partial: 'comments/comment') %>
+                <div class='comments'>
+                 <h4>Comment History</h4>
+                    <% if @home.comments.any? %>
+                       <% @home.comments.each do |comment| %>
+                        <ol>
+                            <%=  comment.content %>
+                        </ol>
+                    <% end %>
+                        <%#<%= will_paginate @home.comments %>
+                    <% else %>
+                        No comments to display.
+            <% end %>  4
+                </div>  
+        </ul>
+    </div>
  </html>
