@@ -31,6 +31,14 @@
   margin-right: auto;
 }
 
+#logoOtherPages{
+  height: 20%;
+  width: 20%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 #icons {
   margin: 0;
   padding: 0;
@@ -172,3 +180,28 @@ input:focus {
   text-align: left;
   display: inline-block;
 }
+
+.container-fluid{
+  background-color: #f7f7f9;
+  border: 1px solid #e1e1e8;
+  border-radius: 4px;
+}
+.col-md-4{
+  margin-top: 40px;
+
+  
+}
+
+.comments_span{
+  margin-top: 60px;
+  background-color: #f7f7f9;
+  border: 1px solid #e1e1e8;
+  border-radius: 4px;
+  
+}
+
+
+.comments_span{
+  margin-top: 70px;
+}
+

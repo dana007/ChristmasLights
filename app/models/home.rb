@@ -16,8 +16,10 @@ class Home < ActiveRecord::Base
   # image_file_size: integer
   # image_updated_at: timestamp
 
-  has_attached_file :image
-  validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
+  has_attached_file :image, :styles => { :small => "150x150>" }
+  #validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
+  validates_attachment_content_type :image, :content_type => ['image/jpeg', 'image/png', 'image/gif']
+  validates_attachment_file_name :image, :matches => [/png\Z/, /jpe?g\Z/, /gif\Z/]
 
   has_many :favorites
   has_many :comments
@@ -92,24 +94,7 @@ class Home < ActiveRecord::Base
     order('LOWER(neighborhood)').map{|e| [e.neighborhood]}.uniq - [[''], [nil]]
   end
 
-  # def self.search(search)
-  #   if search
-  #     find(:all, :conditions => ['address ILIKE ?', "%#{search}%"])
-  #     #@homes = Home.search(params[:search])
-  #   else
-  #     find(:all)
-  #     #@homes = Home.all
-  #   end    
-  # end
-  
-  # def self.search(search)
-  #   where("address LIKE ?", "%#{search}%")
-  # end
-  
-  # def self.filter(filter)
-  #   where(address_id: filter)
-  # end
-
+ 
   def decorated_created_at
     created_at.to_date.to_s(:long)
   end

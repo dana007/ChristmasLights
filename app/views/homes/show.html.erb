@@ -2,25 +2,26 @@
 <html>
 <head>
   <title>SelectedHouse </title>
- <img id="homeLogo" class="p-b_15" alt="home-page-logo" src="/seechristmas-lights-logo.png" />
+ <img id="logoOtherPages" class="p-b_15" src="/seechristmas-lights-logo.png" />
  </head>
  <%#<%= link_to(@home.rating, target: "_blank") %><br/>
 <!--<small>Submitted <%#<%= time_ago_in_words(@home.created_at) %> ago</small>-->
 
-<h3 class="page-title">Christmas Home Information</h3>
-<div class="div_above">
+<h2 class="page-title">Christmas Home Information</h2>
+<div class="container-fluid">
     <div class="col-md-4">
-        <div>
-            Picture
+        <div class="first-col">
+            <h4>Picture:</h4>
             <p>
               <strong><%= @home.title%></strong>
-                  <%= image_tag @home.image_file_name %>
+                  <%#<%= image_tag @home.image_file_name %>
+                   <%= image_tag @home.image.url(:small) %>
             </p>
         </div>
     </div>
     <div class="col-md-4">
-        <div>
-            Address:
+        <div class="second-col">
+            <h4>Address:</h4>
             <%= @home.street_address %>
             <%= @home.city %>
             <%= @home.state %>
@@ -28,9 +29,11 @@
         </div>
     </div>
     <div class="col-md-4">
-        Google Map here
+          <div class="third-col">
+              <h4>Google Map: </h4>
     </div>  
-</div>    
+</div> 
+</div>
     <div class="col-md-12 comments_span">
         <ul>
             <%#<%= render(partial: 'comments/comment', collection: @home.comments) %>
