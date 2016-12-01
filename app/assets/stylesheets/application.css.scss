@@ -181,15 +181,22 @@ input:focus {
   display: inline-block;
 }
 
-.container-fluid{
+.col-md-8 {
   background-color: #f7f7f9;
   border: 1px solid #e1e1e8;
   border-radius: 4px;
+  margin-top: 30px;
 }
+
 .col-md-4{
   margin-top: 40px;
 
-  
+}
+.col-md-2{
+   border: 1px solid #e1e1e8;
+  border-radius: 4px;
+  margin-top: 30px;
+
 }
 
 .comments_span{
@@ -201,7 +208,14 @@ input:focus {
 }
 
 
-.comments_span{
-  margin-top: 70px;
+.nav-sidebar {
+ 
+  left: 950px;
+  width: 250px;
+  background: #f9f9f9;
+  position: fixed;
+  height: 75%;
+  overflow-y: auto;
+  z-index: 1000;
+  transition: all 0.4s ease 0s;
 }
-

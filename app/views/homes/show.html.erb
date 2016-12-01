@@ -8,7 +8,7 @@
 <!--<small>Submitted <%#<%= time_ago_in_words(@home.created_at) %> ago</small>-->
 
 <h2 class="page-title">Christmas Home Information</h2>
-<div class="container-fluid">
+<div class="col-md-8">
     <div class="col-md-4">
         <div class="first-col">
             <h4>Picture:</h4>
@@ -28,13 +28,10 @@
             <%= @home.zip_code %>
         </div>
     </div>
-    <div class="col-md-4">
-          <div class="third-col">
-              <h4>Google Map: </h4>
-    </div>  
+   
 </div> 
-</div>
-    <div class="col-md-12 comments_span">
+
+    <div class="col-md-8 comments_span">
         <ul>
             <%#<%= render(partial: 'comments/comment', collection: @home.comments) %>
             <%= render(partial: 'comments/comment') %>
@@ -53,4 +50,15 @@
                 </div>  
         </ul>
     </div>
+    
+    <!--<div class ="col-md-2">-->
+    <!--<div id="side-content">-->
+        
+    <!--    <h4>Google Map: </h4>-->
+    
+    <!--</div>-->
+</div>
+<% content_for(:sidebar) do %>
+    <%= render(partial: 'layouts/sidebar') %>
+<% end %>
  </html>
