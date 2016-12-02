@@ -30,9 +30,6 @@
   margin-left: auto;
   margin-right: auto;
 }
-.footer{
-  margin-top:200px;
-}
 
 #christmas-logo-small{
   height: 15%;
@@ -200,10 +197,20 @@ input:focus {
 
 }
 .col-md-2{
-   border: 1px solid #e1e1e8;
+  border: 1px solid #e1e1e8;
   border-radius: 4px;
   margin-top: 30px;
 
+}
+
+.first-col{
+  padding: 0;
+  
+}
+
+.second-col{
+  padding: 0;
+  
 }
 
 .comments_span{
@@ -214,16 +221,24 @@ input:focus {
   
 }
 
-.nav-sidebar {
+.nav-sidebar{
   left: 950px;
   width: 250px;
   background: #f9f9f9;
-  position: fixed;
+  position:absolute;
   height: 75%;
-  margin-top: 110px;
+  margin-top: 120px;
   overflow-y: auto;
   z-index: 1000;
   transition: all 0.4s ease 0s;
 }
 
+#map{
+  height: 100%;
+  margin: 0;
+}
+.footer{
+  margin-top:200px;
+  text-align: center;
+}
 

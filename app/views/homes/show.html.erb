@@ -1,14 +1,19 @@
+<html>
+    <head>
+        <title>Test Map</title>
+        <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script> 
+    </head>
+    
 <div class="titleSpan"><img id="christmas-logo-small" class="p-b_15" src="/seechristmas-lights-logo.png" />
-  <h2 class="page-title">Christmas Home Information</h2>
+  <h1 class="page-title">Christmas Home Information</h1>
  </div>
 
- 
  <%#<%= link_to(@home.rating, target: "_blank") %><br/>
 <!--<small>Submitted <%#<%= time_ago_in_words(@home.created_at) %> ago</small>-->
  <div class="col-md-8">
     <div class="col-md-4">
         <div class="first-col">
-            <h4>Picture:</h4>
+            <h3>Picture:</h3>
             <p>
               <strong><%= @home.title%></strong>
                   <%#<%= image_tag @home.image_file_name %>
@@ -18,7 +23,7 @@
     </div>
     <div class="col-md-4">
         <div class="second-col">
-            <h4>Address:</h4>
+            <h3>Address:</h3>
             <%= @home.street_address %>
             <%= @home.city %>
             <%= @home.state %>
@@ -60,3 +65,4 @@
     <% end %>
 </div>
 
+</html>   

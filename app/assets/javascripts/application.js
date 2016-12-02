@@ -16,6 +16,7 @@
 //= require_tree .
 //= require filterrific/filterrific-jquery
 //= require chardinjs
+/*global google*/
 
 function showPasswordUpdateDiv() {
     $("#change-pw-div").toggle();
@@ -168,4 +169,6 @@ $('document').ready(function() {
             $( this ).removeClass( "ui-state-hover" );
         }
     );
+ 
 });
+
