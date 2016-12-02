@@ -30,13 +30,20 @@
   margin-left: auto;
   margin-right: auto;
 }
+.footer{
+  margin-top:200px;
+}
 
-#logoOtherPages{
-  height: 20%;
+#christmas-logo-small{
+  height: 15%;
   width: 20%;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0px;
+  float: left;
+}
+
+.titleSpan{
+  display: inline-block;
 }
 
 #icons {
@@ -181,7 +188,7 @@ input:focus {
   display: inline-block;
 }
 
-.col-md-8 {
+.col-md-8{
   background-color: #f7f7f9;
   border: 1px solid #e1e1e8;
   border-radius: 4px;
@@ -207,15 +214,16 @@ input:focus {
   
 }
 
-
 .nav-sidebar {
- 
   left: 950px;
   width: 250px;
   background: #f9f9f9;
   position: fixed;
   height: 75%;
+  margin-top: 110px;
   overflow-y: auto;
   z-index: 1000;
   transition: all 0.4s ease 0s;
 }
+
+

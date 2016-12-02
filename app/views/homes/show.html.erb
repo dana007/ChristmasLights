@@ -1,14 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>SelectedHouse </title>
- <img id="logoOtherPages" class="p-b_15" src="/seechristmas-lights-logo.png" />
- </head>
+<div class="titleSpan"><img id="christmas-logo-small" class="p-b_15" src="/seechristmas-lights-logo.png" />
+  <h2 class="page-title">Christmas Home Information</h2>
+ </div>
+
+ 
  <%#<%= link_to(@home.rating, target: "_blank") %><br/>
 <!--<small>Submitted <%#<%= time_ago_in_words(@home.created_at) %> ago</small>-->
-
-<h2 class="page-title">Christmas Home Information</h2>
-<div class="col-md-8">
+ <div class="col-md-8">
     <div class="col-md-4">
         <div class="first-col">
             <h4>Picture:</h4>
@@ -31,9 +28,9 @@
    
 </div> 
 
-    <div class="col-md-8 comments_span">
-        <ul>
-            <%#<%= render(partial: 'comments/comment', collection: @home.comments) %>
+<div class="col-md-8 comments_span">
+    <ul>
+        <%#<%= render(partial: 'comments/comment', collection: @home.comments) %>
             <%= render(partial: 'comments/comment') %>
                 <div class='comments'>
                  <h4>Comment History</h4>
@@ -57,8 +54,9 @@
     <!--    <h4>Google Map: </h4>-->
     
     <!--</div>-->
+<div id="sidebar">
+    <% content_for(:sidebar) do %>
+        <%= render(partial: 'layouts/sidebar') %>
+    <% end %>
 </div>
-<% content_for(:sidebar) do %>
-    <%= render(partial: 'layouts/sidebar') %>
-<% end %>
- </html>
+
