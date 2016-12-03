@@ -237,6 +237,28 @@ input:focus {
   height: 100%;
   margin: 0;
 }
+
+.glyphicon.glyphicon-thumbs-up{ 
+  font-size: 25px;
+  padding-left: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.glyphicon.glyphicon-thumbs-down{ 
+  margin-left: 30px;
+  font-size: 25px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.glyphicon.glyphicon-star{ 
+  margin-left: 75px;
+  font-size: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
 .footer{
   margin-top:200px;
   text-align: center;
