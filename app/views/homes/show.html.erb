@@ -13,18 +13,17 @@
  <%#<%= link_to(@home.rating, target: "_blank") %><br/>
 <!--<small>Submitted <%#<%= time_ago_in_words(@home.created_at) %> ago</small>-->
  <div class="col-md-8">
-    <div class="col-md-4">
+    <div class="col-md-4" style="margin-top: 15px">
         <div class="first-col">
             <h3>Picture:</h3>
             <p>
               <strong><%= @home.title%></strong>
-                  <%#<%= image_tag @home.image_file_name %>
-                   <%= image_tag @home.image.url(:small) %>
+                 <%= image_tag @home.image.url, :size => "100x100" %>
             </p>
         </div>
     </div>
-    <div class="col-md-4">
-        <div class="second-col">
+    <div class="col-md-4" style="margin-top: 15px">
+        <div class="second-col" style="margin-left: 65px">
             <h3>Address:</h3>
             <%= @home.street_address %>
             <%= @home.city %>
@@ -36,10 +35,9 @@
 </div> 
 <div class="col-md-8" style="background-color: #ffffff; padding: 0px;">
    
-        <span class="glyphicon-class glyphicon glyphicon-thumbs-up"></span>
-        <span class="glyphicon-class glyphicon glyphicon-thumbs-down"></span>
-    
-        <span class="glyphicon-class glyphicon glyphicon-star"></span>
+        <a href="#"><span class="glyphicon-class glyphicon glyphicon-thumbs-up"></span></a>
+        <a href="#"><span class="glyphicon-class glyphicon glyphicon-thumbs-down"></span></a>
+        <a href="#"><span class="glyphicon-class glyphicon glyphicon-star"></span></a>
     
 </div>
 
@@ -48,7 +46,7 @@
         <%#<%= render(partial: 'comments/comment', collection: @home.comments) %>
             <%= render(partial: 'comments/comment') %>
                 <div class='comments'>
-                 <h3>Comment History</h3>
+                 <h4>Comment History:</h4>
                     <% if @home.comments.any? %>
                        <% @home.comments.each do |comment| %>
                         <ol>
