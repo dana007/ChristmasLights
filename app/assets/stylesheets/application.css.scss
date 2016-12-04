@@ -327,3 +327,19 @@ a, a[href], input[type='submit'], input[type='image'], label[for], select, butto
 .p-r_25 {
   padding-right: 25px;
 }
+
+.p-l_10 {
+  padding-left: 10px;
+}
+
+hr {
+  border: 1px solid darkgray;
+}
+
+.comment-content {
+  background-color: white;
+  border: solid;
+  border-color: darkgray;
+  width: 646px;
+  text-wrap: normal;
+}

@@ -51,6 +51,7 @@ class HomesController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
     @home = Home.find(params[:id])
     @is_favorited = Favorite.where(user_id: cookies[:user_id]).where(home_id: @home.id).first.nil? ? false : true
   end
@@ -161,9 +162,24 @@ class HomesController < ApplicationController
     redirect_to(reset_filterrific_url(format: :html)) and return
   end
 
+  def add_comment
+    @comment = Comment.new(comment_params)
+    if @comment.save
+      $info_message = 'Your comment posted successfully!'
+      redirect_to :back
+    else
+      $error_message = 'An unexpected error occurred. Your comment was not posted.'
+      redirect_to :back
+    end
+  end
+
   private
   def home_params
     params.require(:home).permit(:title, :description, :street_address, :city, :state, :zip_code, :neighborhood, :image)
+  end
+
+  def comment_params
+    params.require(:comment).permit(:user_id, :home_id, :content)
   end
 
 end

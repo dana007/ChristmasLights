@@ -1,0 +1,7 @@
+<h4>Comments:</h4>
+<%= form_for @comment, url: add_comment_home_path(home_id) do |f| %>
+    <%= f.hidden_field :user_id, value: cookies[:user_id] %>
+    <%= f.hidden_field :home_id, value: home_id %>
+    <%= f.text_area :content, placeholder: 'Join the discussion...', cols: 78, rows: 3 %><br/>
+    <%= button_tag('Post Comment', id: 'button') %>
+<% end %>

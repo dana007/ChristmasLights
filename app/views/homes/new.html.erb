@@ -1,7 +1,6 @@
 <h1 class="page-title">Add Home Form</h1>
 <h5 class="page-title">*Please note that all fields are required*</h5>
 <%= form_for @home, url: homes_path, html: { multipart: true, id: 'add-home-form' } do |f| %>
-<!--%= form_tag({action: 'create'}, html: {multipart: true}, id: 'add-home-form') do |f| %-->
     <div class="p-b_5 align-left">
       <div class="p-b_5">
         <%= label_tag(:title, "Title: ") %>

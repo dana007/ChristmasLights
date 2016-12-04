@@ -18,10 +18,7 @@ Rails.application.routes.draw do
     member do
       post 'update_rating'
       post 'update_favorites'
+      post 'add_comment'
     end
   end
-
-  #resources :comments do
-   # resources :comments
-  #end
 end

@@ -43,14 +43,20 @@
 
 <div class="col-md-8 comments_span">
   <ul>
-    <%= render(partial: 'comments/comment') %>
+    <%= render(partial: 'homes/comment', locals: {home_id: @home.id}) %>
+    <hr />
     <div class='comments'>
-      <h4>Comment History:</h4>
       <% if @home.comments.any? %>
           <% @home.comments.each do |comment| %>
-              <ol>
-                <%=  comment.content %>
-              </ol>
+              <div class="comment-content">
+                <div class="p-l_10">
+                  <%= comment.content %>
+                </div>
+              </div>
+              <div class="p-l_10">
+                Posted by: <%= comment.user.username %>
+              </div>
+              <br />
           <% end %>
       <% else %>
           No comments to display.
