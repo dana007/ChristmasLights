@@ -320,7 +320,7 @@ input:focus {
   }
 }
 
-a, a[href], input[type='submit'], input[type='image'], label[for], select, button, .pointer {
+a, a[href], input[type='submit'], input[type='image'], label[for], select, button, .pointer, tr[data-href] {
   cursor: pointer;
 }
 
