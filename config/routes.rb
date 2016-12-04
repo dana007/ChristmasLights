@@ -12,6 +12,12 @@ Rails.application.routes.draw do
     resources :comments
     collection do
       get 'user_homes'
+      get 'favorite_homes'
+    end
+
+    member do
+      post 'update_rating'
+      post 'update_favorites'
     end
   end
 

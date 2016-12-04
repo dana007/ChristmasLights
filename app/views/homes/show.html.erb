@@ -1,77 +1,66 @@
-<html>
-    <head>
-        <title>Show Home</title>
-        <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-    </head>
-    
-<div class="titleSpan"><img id="christmas-logo-small" class="p-b_15" src="/seechristmas-lights-logo.png" />
-  <h1 class="page-title">Christmas Home Information</h1>
- </div>
-
- <%#<%= link_to(@home.rating, target: "_blank") %><br/>
-<!--<small>Submitted <%#<%= time_ago_in_words(@home.created_at) %> ago</small>-->
- <div class="col-md-8">
-    <div class="col-md-5" style="margin-top: 15px">
-        <div class="first-col">
-            <h3>Picture:</h3>
-            <p>
-              <strong><%= @home.title%></strong>
-                 <%= image_tag @home.image.url, :size => "300x300" %>
-            </p>
-        </div>
+<h1 class="page-title">Home Details</h1>
+<div class="col-md-8">
+  <div class="span8">
+    <h3 class="title"><%= @home.title %></h3>
+  </div>
+  <div class="row">
+    <div class="col-md-7 p-b_15">
+      <div class="first-col">
+        <%= image_tag @home.image.url, :size => '400x300' %>
+      </div>
     </div>
-    <div class="col-md-3" style="margin-top: 15px">
-        <div class="second-col" style="margin-left: 65px; width: 100%" >
-            <h3>Address:</h3>
-            <span><%= @home.street_address %></br></span>
-            <span><%= @home.city %></span>
-            <span><%= @home.state %><%= @home.zip_code %>
-            </span>
-        </div>
+    <div class="col-md-3">
+      <div class="second-col" >
+        <h4>Address:</h4>
+        <%= @home.street_address %></br>
+        <%= @home.city %>,  <%= @home.state %> <%= @home.zip_code %>
+      </div>
+      <br />
+      <br />
+      <div class="second-col">
+        <h4>Description:</h4>
+        <%= @home.description %>
+      </div>
     </div>
-   
-</div> 
-<div class="col-md-8" style="background-color: #ffffff; padding: 0px;">
-   
-        <a href="#"><span class="glyphicon-class glyphicon glyphicon-thumbs-up"></span></a>
-        <a href="#"><span class="glyphicon-class glyphicon glyphicon-thumbs-down"></span></a>
-        <a href="#"><span class="glyphicon-class glyphicon glyphicon-star"></span></a>
-    
+  </div>
+</div>
+
+<div class="col-md-8">
+  <div class="ns-link p-t_5">
+    <span id='home-td' class="p-r_25"><a class="fa fa-thumbs-o-down fa-2x"></a></span>
+    <span id='home-tu' class="p-r_25"><a class="fa fa-thumbs-o-up fa-2x"></a></span>
+    <% if @is_favorited %>
+      <span id='home-fav-del' class="p-r_25"><a class="fa fa-star fa-2x"></a></span>
+    <% else %>
+      <span id='home-fav-add' class="p-r_25"><a class="fa fa-star-o fa-2x"></a></span>
+    <% end %>
+  </div>
+  <br />
+  <div class="p-b_5">
+    Rating: <span id="home-rating"><%= @home.rating %></span>
+  </div>
 </div>
 
 <div class="col-md-8 comments_span">
-    <ul>
-        <%#<%= render(partial: 'comments/comment', collection: @home.comments) %>
-            <%= render(partial: 'comments/comment') %>
-                <div class='comments'>
-                 <h4>Comment History:</h4>
-                    <% if @home.comments.any? %>
-                       <% @home.comments.each do |comment| %>
-                        <ol>
-                            <%=  comment.content %>
-                        </ol>
-                    <% end %>
-                        <%#<%= will_paginate @home.comments %>
-                    <% else %>
-                        No comments to display.
-            <% end %>  
-                </div>  
-        </ul>
+  <ul>
+    <%= render(partial: 'comments/comment') %>
+    <div class='comments'>
+      <h4>Comment History:</h4>
+      <% if @home.comments.any? %>
+          <% @home.comments.each do |comment| %>
+              <ol>
+                <%=  comment.content %>
+              </ol>
+          <% end %>
+      <% else %>
+          No comments to display.
+      <% end %>
     </div>
-    
-    <!--<div class ="col-md-2">-->
-    <!--<div id="side-content">-->
-        
-    <!--    <h4>Google Map: </h4>-->
-    
-    <!--</div>-->
- 
-<div id="sidebar">
-    <% content_for(:sidebar) do %>
-        <%= render(partial: 'sidebar') %>
-    <% end %>
+  </ul>
 </div>
 
-</html>   
+<div id="sidebar">
+  <% content_for(:sidebar) do %>
+      <%= render(partial: 'sidebar') %>
+  <% end %>
+</div>

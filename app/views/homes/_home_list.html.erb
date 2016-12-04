@@ -10,7 +10,7 @@
   </div>
 </div>
 
-<%= form_tag({action: 'index'}, method: :get, id: 'pagination-form') do |f| %>
+<%= form_tag({action: @action}, method: :get, id: 'pagination-form') do |f| %>
     <label>Homes per page:</label>
     <%= select_tag(:per_page, options_for_select(@per_page_options, @selected_per_page), onchange: 'this.form.submit();')%>
 <% end %>

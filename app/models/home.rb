@@ -35,7 +35,8 @@ class Home < ActiveRecord::Base
           :with_city,
           :with_state,
           :with_neighborhood,
-          :with_user_id
+          :with_user_id,
+          :with_home_id
       ]
   )
 
@@ -56,6 +57,10 @@ class Home < ActiveRecord::Base
 
   scope :with_user_id, lambda { |user_id|
     where(user_id: user_id)
+  }
+
+  scope :with_home_id, lambda { |home_ids|
+    where(id: [*home_ids])
   }
 
   scope :sorted_by, lambda { |sort_option|
@@ -112,12 +117,36 @@ class Home < ActiveRecord::Base
     order('LOWER(city)').map{|e| [e.city]}.uniq - [[''], [nil]]
   end
 
+  def self.city_options_for_select_homes(home_ids)
+    where(id: home_ids).order('LOWER(city)').map{|e| [e.city]}.uniq - [[''], [nil]]
+  end
+
+  def self.city_options_for_select_user(user_id)
+    where(user_id: user_id).order('LOWER(city)').map{|e| [e.city]}.uniq - [[''], [nil]]
+  end
+
   def self.state_options_for_select
     order('LOWER(state)').map{|e| [e.state]}.uniq - [[''], [nil]]
   end
 
+  def self.state_options_for_select_homes(home_ids)
+    where(id: home_ids).order('LOWER(state)').map{|e| [e.state]}.uniq - [[''], [nil]]
+  end
+
+  def self.state_options_for_select_user(user_id)
+    where(user_id: user_id).order('LOWER(state)').map{|e| [e.state]}.uniq - [[''], [nil]]
+  end
+
   def self.neighborhood_options_for_select
     order('LOWER(neighborhood)').map{|e| [e.neighborhood]}.uniq - [[''], [nil]]
+  end
+
+  def self.neighborhood_options_for_select_homes(home_ids)
+    where(id: home_ids).order('LOWER(neighborhood)').map{|e| [e.neighborhood]}.uniq - [[''], [nil]]
+  end
+
+  def self.neighborhood_options_for_select_user(user_id)
+    where(user_id: user_id).order('LOWER(neighborhood)').map{|e| [e.neighborhood]}.uniq - [[''], [nil]]
   end
 
   def self.set_per_page(per_page)

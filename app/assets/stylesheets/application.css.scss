@@ -102,23 +102,29 @@
   background-color: #111;
 }
 
-a:link {
-  color: blue;
-  text-decoration: underline;
-}
-
-a:hover {
-  background-color: transparent;
-  text-decoration: underline;
-}
-
-a:visited {
-  color: purple;
-  text-decoration: underline;
+.sd-link {
+  a {
+    &:visited {
+      color: purple;
+      text-decoration: underline;
+    }
+    &:link {
+      color: blue;
+      text-decoration: underline;
+    }
+    &:hover {
+      background-color: transparent;
+      text-decoration: underline;
+    }
+  }
 }
 
 .page-title {
   color: red;
+  text-align: center;
+}
+
+.title {
   text-align: center;
 }
 
@@ -194,9 +200,9 @@ input:focus {
 }
 
 .title {
-   display: block;
-   border: 1px blue;
-   padding: 16px;
+  display: block;
+  border: 1px blue;
+  padding: 16px;
 }
 
 .left-title {
@@ -232,12 +238,12 @@ input:focus {
 
 .first-col{
   padding: 0;
-  
+
 }
 
 .second-col{
   padding: 0;
-  
+
 }
 
 .comments_span{
@@ -245,7 +251,7 @@ input:focus {
   background-color: #f7f7f9;
   border: 1px solid #e1e1e8;
   border-radius: 4px;
-  
+
 }
 
 .nav-sidebar{
@@ -265,7 +271,7 @@ input:focus {
   margin: 0;
 }
 
-.glyphicon.glyphicon-thumbs-up{ 
+.glyphicon.glyphicon-thumbs-up{
   font-size: 25px;
   padding-left: 20px;
   padding-top: 10px;
@@ -273,14 +279,14 @@ input:focus {
   margin-left: 30px;
 }
 
-.glyphicon.glyphicon-thumbs-down{ 
+.glyphicon.glyphicon-thumbs-down{
   margin-left: 30px;
   font-size: 25px;
   padding-top: 10px;
   padding-bottom: 10px;
 }
 
-.glyphicon.glyphicon-star{ 
+.glyphicon.glyphicon-star{
   margin-left: 75px;
   font-size: 30px;
   padding-top: 10px;
@@ -296,4 +302,28 @@ input:focus {
   border: green !important;
   border-style: solid !important;
   border-radius: 4px !important;
+}
+
+.ns-link {
+  a {
+    color: black !important;
+    &:visited {
+      text-decoration: none;
+    }
+    &:link {
+      text-decoration: none;
+    }
+    &:hover {
+      background-color: transparent;
+      text-decoration: none;
+    }
+  }
+}
+
+a, a[href], input[type='submit'], input[type='image'], label[for], select, button, .pointer {
+  cursor: pointer;
+}
+
+.p-r_25 {
+  padding-right: 25px;
 }

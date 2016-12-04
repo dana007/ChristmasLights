@@ -173,5 +173,50 @@ $('document').ready(function() {
         }
     );
 
+    $("#home-td").click(function(){
+        $.ajax({
+            url: '/homes/24/update_rating',
+            data: {'rating': -1},
+            type: 'post',
+            beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))}
+        });
+
+        var rating = Number($("#home-rating").html());
+        $("#home-rating").html(rating-1);
+    });
+
+    $("#home-tu").click(function(){
+        $.ajax({
+            url: '/homes/24/update_rating',
+            data: {'rating': 1},
+            type: 'post',
+            beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))}
+        });
+
+        var rating = Number($("#home-rating").html());
+        $("#home-rating").html(rating+1);
+    });
+
+    $(document).on('click','#home-fav-add',function(){
+        $.ajax({
+            url: '/homes/24/update_favorites',
+            data: {'update_type': 'add'},
+            type: 'post',
+            beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))}
+        });
+
+        $("#home-fav-add").replaceWith('<span id="home-fav-del" class="p-r_25"><a class="fa fa-star fa-2x"></a></span>');
+    });
+
+    $(document).on('click','#home-fav-del',function(){
+        $.ajax({
+            url: '/homes/24/update_favorites',
+            data: {'update_type': 'delete'},
+            type: 'post',
+            beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))}
+        });
+        $("#home-fav-del").replaceWith('<span id="home-fav-add" class="p-r_25"><a class="fa fa-star-o fa-2x"></a></span>');
+    });
+
 });
 
