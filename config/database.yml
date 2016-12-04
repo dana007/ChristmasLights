@@ -1,11 +1,11 @@
 default: &default
   adapter: postgresql
-  host: localhost #rds-swe-632.cdyv7dkpcx4v.us-east-1.rds.amazonaws.com
+  host: rds-swe-632.cdyv7dkpcx4v.us-east-1.rds.amazonaws.com
   encoding: unicode
   pool: 5
 
 development:
   <<: *default
   database: xmas_lights
-  username: postgres #root
-  password: postgres #SW3632!! #<%= ENV['RAILS_DB_PWD'] %>
+  username: root
+  password: <%= ENV['RAILS_DB_PWD'] %>
