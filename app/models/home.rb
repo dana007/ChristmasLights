@@ -31,6 +31,7 @@ class Home < ActiveRecord::Base
       default_filter_params: { sorted_by: 'created_at_desc' },
       available_filters: [
           :sorted_by,
+          :search_query,
           :with_city,
           :with_state,
           :with_neighborhood,
@@ -69,6 +70,31 @@ class Home < ActiveRecord::Base
     end
   }
 
+  scope :search_query, lambda { |query|
+    return nil  if query.blank?
+    # condition query, parse into individual keywords
+    terms = query.downcase.split(/\s+/)
+    # replace "*" with "%" for wildcard searches,
+    # append '%', remove duplicate '%'s
+    terms = terms.map { |e|
+      (e.gsub('*', '%') + '%').gsub(/%+/, '%')
+    }
+    # configure number of OR conditions for provision
+    # of interpolation arguments. Adjust this if you
+    # change the number of OR conditions.
+    num_or_conditions = 2
+    where(
+        terms.map {
+          or_clauses = [
+              "LOWER(homes.title) LIKE ?",
+              "LOWER(homes.description) LIKE ?"
+          ].join(' OR ')
+          "(#{ or_clauses })"
+        }.join(' AND '),
+        *terms.map { |e| [e] * num_or_conditions }.flatten
+    )
+  }
+
   def self.options_for_select
     order('rating').map { |e| [e.rating, e.id] }
   end
@@ -94,6 +120,9 @@ class Home < ActiveRecord::Base
     order('LOWER(neighborhood)').map{|e| [e.neighborhood]}.uniq - [[''], [nil]]
   end
 
+  def self.set_per_page(per_page)
+    self.per_page = per_page
+  end
  
   def decorated_created_at
     created_at.to_date.to_s(:long)

@@ -11,12 +11,11 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
-//= require turbolinks
 //= require_tree .
 //= require filterrific/filterrific-jquery
 //= require chardinjs
 /*global google*/
+
 
 function showPasswordUpdateDiv() {
     $("#change-pw-div").toggle();
@@ -35,10 +34,9 @@ function checkPasswordMatch() {
 $('document').ready(function() {
 
     $(".home").click(function() {
-       
         window.document.location = $(this).data("href");
     });
-   
+
     $( "#pw-submit-button" ).button();
 
     $("#change-pw-div").hide();
@@ -169,6 +167,6 @@ $('document').ready(function() {
             $( this ).removeClass( "ui-state-hover" );
         }
     );
- 
+
 });
 

@@ -5,7 +5,11 @@
     <div class="p-b_5 align-left">
       <div class="p-b_5">
         <%= label_tag(:title, "Title: ") %>
-        <%= f.text_field :title, html: {class: 'text-input-box'}, required: true %>
+        <%= f.text_field :title, html: {class: 'text-input-box'}, autofocus: true, required: true %>
+      </div>
+      <div class="p-b_5">
+        <%= label_tag(:description, 'Description: ') %><br />
+        <%= f.text_area :description, cols: 34, rows: 2, html: {class: 'text-input-box'}, required: true %>
       </div>
       <div class="p-b_5">
         <%= label_tag(:street_address, "Street Address: ") %>

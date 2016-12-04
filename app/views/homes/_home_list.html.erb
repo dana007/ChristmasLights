@@ -10,10 +10,20 @@
   </div>
 </div>
 
+<%= form_tag({action: 'index'}, method: :get, id: 'pagination-form') do |f| %>
+    <label>Homes per page:</label>
+    <%= select_tag(:per_page, options_for_select(@per_page_options, @selected_per_page), onchange: 'this.form.submit();')%>
+<% end %>
+
+<div class="chardin_box">
+  <%= will_paginate homes, renderer: BootstrapPagination::Rails %>
+</div>
+
 <table class="table">
   <tr>
     <th>Photo</th>
     <th>Title</th>
+    <th>Description</th>
     <th>City</th>
     <th>State</th>
     <th>Neighborhood</th>
@@ -21,20 +31,20 @@
     <th>Post Date</th>
   </tr>
   <% homes.each do |home| %>
-    <!--<tr class="home" data-href='homes/<<%#%= home.id %>'>-->
       <tr class="home" data-href="<%= home_path(home.id) %>">
-      <td><%= image_tag home.image.url, :size => "50x50" %></td>
-      <td class="title"><%= home.title %></td>
-      <td class="city"><%= home.city %></td>
-      <td class="state"><%= home.state %></td>
-      <td class="neighborhood"><%= home.neighborhood %></td>
-      <td class="rating"><%= home.rating %></td>
-      <td class="created_at"><%= home.decorated_created_at %>  
-       <!--<div class="linkTo">-->
-       <!-- <%#<%= link_to("View", home_path(home.id)) %></td>-->
-       <!--</div> -->
-       
-    </tr>
+        <% if home.image.exists? %>
+          <td class="image"><%= image_tag home.image.url, :size => '100x100' %></td>
+        <% else %>
+          <td class="image"><%= image_tag '/images/image-unavailable.jpg', :size => '100x100' %></td>
+        <% end %>
+        <td class="title"><%= home.title %></td>
+        <td class="description"><%= home.description %></td>
+        <td class="city"><%= home.city %></td>
+        <td class="state"><%= home.state %></td>
+        <td class="neighborhood"><%= home.neighborhood %></td>
+        <td class="rating"><%= home.rating %></td>
+        <td class="created_at"><%= home.decorated_created_at %>
+      </tr>
   <% end %>
 </table>
 

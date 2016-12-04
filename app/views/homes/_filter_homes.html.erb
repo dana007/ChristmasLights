@@ -3,17 +3,23 @@
       <div class="row">
         <div class="col-md-3">
           <div class="form-group chardin_box">
+            <%= label_tag 'Search Title or Description' %>
+            <%= f.text_field :search_query, {class: 'filterrific-periodically-observed form-control', autofocus: true} %>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="form-group chardin_box">
             <%= label_tag 'City' %>
             <%= f.select :with_city, @filterrific.select_options[:with_city], {:include_blank => '- Any -'}, {class: 'form-control'} %>
           </div>
-         </div>
-        <div class="col-md-3">
+        </div>
+        <div class="col-md-2">
           <div class="form-group chardin_box">
             <%= label_tag 'State' %>
             <%= f.select :with_state, @filterrific.select_options[:with_state], {:include_blank => '- Any -'}, {class: 'form-control'} %>
           </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
           <div class="form-group chardin_box">
             <%= label_tag 'Neighborhood' %>
             <%= f.select :with_neighborhood, @filterrific.select_options[:with_neighborhood], {:include_blank => '- Any -'}, {class: 'form-control'} %>
