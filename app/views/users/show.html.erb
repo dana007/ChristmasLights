@@ -1,28 +1,51 @@
 <h1 class="page-title">My Account Info</h1>
-<%= form_for @user, url: {action: :update}, html: {id: 'new-user-form'} do |f| %>
+<%= form_for @user, url: {action: :update}, html: {id: 'update-user-form'} do |f| %>
     <div class="p-b_5, align-left">
       <div class="p-b_5">
         <%= label_tag(nil, "Username: ") %>
         <%= @user.username %>
       </div>
+      <div class="p-b_5">
+        <%= label_tag(nil, "Email: ") %>
+        <%= @user.email %>
+      </div>
     </div>
     <br />
-    <button type="button" onclick="showPasswordUpdateDiv();" id="button">Change Password</button>
+    <button type="button" onclick="showEmailUpdateDiv();" id="button">Change Email</button>
+    <button type="button" onclick="showPasswordUpdateDiv();" id="button" class="ui-button ui-corner-all ui-widget">Change Password</button>
     <br /><br />
     <div id="change-pw-div">
+      <br />
       <div class="p-b_5 align-left">
         <div class="p-b_5 p-t_5">
-          <%= label_tag(:password, "Password: ") %>
-          <%= password_field_tag(:password, nil, required: true) %>
+          <%= label_tag(:password, "New Password: ") %>
+          <%= password_field_tag(:password, nil, id: 'new-password-input', class: 'green-border', autofocus: true) %>
         </div>
         <div class="p-b_5">
-          <%= label_tag(:password_confirmation, "Confirm Password: ") %>
-          <%= password_field_tag(:password_confirmation, nil, required: true, onChange: 'checkPasswordMatch();') %>
+          <%= label_tag(:password_confirmation, "Confirm New Password: ") %>
+          <%= password_field_tag(:password_confirmation, nil, onChange: 'checkNewPasswordMatch();', id: 'new-password-confirmation-input', class: 'green-border') %>
         </div>
       </div>
       <div class="registrationFormAlert" id="divCheckPasswordMatch"></div>
       <div class="align-center">
         <%= button_tag('Submit', id: 'pw-submit-button') %>
       </div>
+      <br />
+      <br />
+    </div>
+    <div id="change-email-div">
+      <br />
+      <div class="p-b_5 align-left">
+        <div class="p-b_5 p-t_5">
+          <%= label_tag(:email, "New Email: ") %>
+          <%= email_field_tag(:email, nil, id: 'new-email-input', class: 'text-input-box green-border', autofocus: true) %>
+        </div>
+      </div>
+      <br />
+      <div class="align-center">
+        <%= button_tag('Submit', id: 'email-submit-button') %>
+      </div>
+      <br />
+      <br />
     </div>
 <% end %>

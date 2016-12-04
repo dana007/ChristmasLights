@@ -18,12 +18,47 @@
 
 
 function showPasswordUpdateDiv() {
+    $("#change-email-div").hide();
     $("#change-pw-div").toggle();
+    if($('#change-pw-div').is(':visible')) {
+        document.getElementById('new-password-input').required = true;
+    }
+    else {
+        document.getElementById('new-password-input').required = false;
+    }
+
+    if($('#change-pw-div').is(':visible')) {
+        document.getElementById('new-password-confirmation-input').required = true;
+    }
+    else {
+        document.getElementById('new-password-confirmation-input').required = false;
+    }
+}
+
+function showEmailUpdateDiv() {
+    $("#change-pw-div").hide();
+    $("#change-email-div").toggle();
+    if($('#change-email-div').is(':visible')) {
+        document.getElementById('new-email-input').required = true;
+    }
+    else {
+        document.getElementById('new-email-input').required = false;
+    }
 }
 
 function checkPasswordMatch() {
     var password = $("#password").val();
     var confirmPassword = $("#password_confirmation").val();
+
+    if (password != confirmPassword)
+        $("#divCheckPasswordMatch").html("Passwords do not match!");
+    else
+        $("#divCheckPasswordMatch").html("");
+}
+
+function checkNewPasswordMatch() {
+    var password = $("#new-password-input").val();
+    var confirmPassword = $("#new-password-confirmation-input").val();
 
     if (password != confirmPassword)
         $("#divCheckPasswordMatch").html("Passwords do not match!");
@@ -38,44 +73,14 @@ $('document').ready(function() {
     });
 
     $( "#pw-submit-button" ).button();
+    $( "#email-submit-button" ).button();
 
     $("#change-pw-div").hide();
+    $("#change-email-div").hide();
 
     $("#password_confirmation").keyup(checkPasswordMatch);
 
     $( "#accordion" ).accordion();
-
-
-
-    var availableTags = [
-        "ActionScript",
-        "AppleScript",
-        "Asp",
-        "BASIC",
-        "C",
-        "C++",
-        "Clojure",
-        "COBOL",
-        "ColdFusion",
-        "Erlang",
-        "Fortran",
-        "Groovy",
-        "Haskell",
-        "Java",
-        "JavaScript",
-        "Lisp",
-        "Perl",
-        "PHP",
-        "Python",
-        "Ruby",
-        "Scala",
-        "Scheme"
-    ];
-    $( "#autocomplete" ).autocomplete({
-        source: availableTags
-    });
-
-
 
     $( "#button" ).button();
     $( "#button-icon" ).button({

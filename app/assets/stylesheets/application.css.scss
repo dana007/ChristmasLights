@@ -102,12 +102,32 @@
   background-color: #111;
 }
 
+a:link {
+  color: blue;
+  text-decoration: underline;
+}
+
+a:hover {
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:visited {
+  color: purple;
+  text-decoration: underline;
+}
+
 .page-title {
   color: red;
   text-align: center;
 }
 
 #new-user-form {
+  padding-top: 25px;
+  text-align: center;
+}
+
+#update-user-form {
   padding-top: 25px;
   text-align: center;
 }
@@ -153,6 +173,12 @@ input:focus {
 }
 
 #change-pw-div {
+  display: none;
+  border: green;
+  border-style: solid;
+}
+
+#change-email-div {
   display: none;
   border: green;
   border-style: solid;
@@ -266,3 +292,8 @@ input:focus {
   text-align: center;
 }
 
+.green-border {
+  border: green !important;
+  border-style: solid !important;
+  border-radius: 4px !important;
+}

@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   def create
     new_user = User.new
     new_user.username = params[:user_name]
+    new_user.email = params[:email]
     new_user.password = params[:password]
 
     new_user.save
@@ -46,9 +47,16 @@ class UsersController < ApplicationController
 
   def update
     user = User.find(params[:id])
-    user.password = params[:password]
-    user.save
-    $info_message = 'Password updated successfully.'
+    if not params[:password].empty?
+      user.password = params[:password]
+      user.save
+      $info_message = 'Password updated successfully.'
+    end
+    if not params[:email].empty?
+      user.email = params[:email]
+      user.save
+      $info_message = 'Email updated successfully.'
+    end
     redirect_to user_path(user.id)
   end
 end
