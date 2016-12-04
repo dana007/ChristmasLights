@@ -57,6 +57,8 @@ class HomesController < ApplicationController
   end
 
   def update_rating
+    print('IM HERE')
+    print(params[:id])
     home = Home.find(params[:id])
     home.rating += Integer(params[:rating])
     home.save

@@ -108,8 +108,8 @@ class Home < ActiveRecord::Base
     [
         ['Post date (newest first)', 'created_at_desc'],
         ['Post date (oldest first)', 'created_at_asc'],
-        ['Rating (highest first)', 'rating_desc'],
-        ['Rating (lowest first)', 'rating_asc']
+        ['Likes (highest first)', 'rating_desc'],
+        ['Likes (lowest first)', 'rating_asc']
     ]
   end
 

@@ -175,26 +175,41 @@ $('document').ready(function() {
 
     $("#home-td").click(function(){
         $.ajax({
-            url: '/homes/24/update_rating',
+            url: '/homes/' + $("#home-id").val() + '/update_rating',
             data: {'rating': -1},
             type: 'post',
             beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))}
         });
 
         var rating = Number($("#home-rating").html());
-        $("#home-rating").html(rating-1);
+        var new_rating = rating - 1;
+        $("#home-rating").html(new_rating);
+
+        if (new_rating != 1) {
+            $("#like-cardinality").html('likes');
+        }
+        else {
+            $("#like-cardinality").html('like');
+        }
     });
 
     $("#home-tu").click(function(){
         $.ajax({
-            url: '/homes/24/update_rating',
+            url: '/homes/' + $("#home-id").val() + '/update_rating',
             data: {'rating': 1},
             type: 'post',
             beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))}
         });
 
         var rating = Number($("#home-rating").html());
-        $("#home-rating").html(rating+1);
+        var new_rating = rating + 1;
+        $("#home-rating").html(new_rating);
+        if (new_rating != 1) {
+            $("#like-cardinality").html('likes');
+        }
+        else {
+            $("#like-cardinality").html('like');
+        }
     });
 
     $(document).on('click','#home-fav-add',function(){

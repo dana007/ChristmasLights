@@ -32,17 +32,20 @@
 
   <div class="col-md-8">
     <div class="ns-link p-t_5">
+      <input type="hidden" id="home-id" value="<%= @home.id %>" />
       <span id='home-td' class="p-r_25"><a class="fa fa-thumbs-o-down fa-2x"></a></span>
       <span id='home-tu' class="p-r_25"><a class="fa fa-thumbs-o-up fa-2x"></a></span>
-      <% if @is_favorited %>
-          <span id='home-fav-del' class="p-r_25"><a class="fa fa-star fa-2x"></a></span>
-      <% else %>
-          <span id='home-fav-add' class="p-r_25"><a class="fa fa-star-o fa-2x"></a></span>
+      <% if cookies[:user_id] %>
+        <% if @is_favorited %>
+            <span id='home-fav-del' class="p-r_25"><a class="fa fa-star fa-2x"></a></span>
+        <% else %>
+            <span id='home-fav-add' class="p-r_25"><a class="fa fa-star-o fa-2x"></a></span>
+        <% end %>
       <% end %>
     </div>
     <br />
     <div class="p-b_5">
-      Rating: <span id="home-rating"><%= @home.rating %></span>
+      <span id="home-rating"><%= @home.rating %></span> <span id="like-cardinality"><%= [1].include?(@home.rating) ? 'like' : 'likes' %></span>
     </div>
   </div>
 
