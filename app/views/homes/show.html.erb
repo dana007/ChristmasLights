@@ -1,72 +1,72 @@
 <h1 class="page-title">Home Details</h1>
-<div class="col-md-8">
-  <div class="span8">
-    <h3 class="title"><%= @home.title %></h3>
-  </div>
-  <div class="row">
-    <div class="col-md-7 p-b_15">
-      <div class="first-col">
-        <%= image_tag @home.image.url, :size => '400x300' %>
+<div class="align-div-center">
+  <div class="col-md-8">
+    <div class="span8">
+      <h3 class="title"><%= @home.title %></h3>
+    </div>
+    <div class="row">
+      <div class="col-md-7 p-b_15">
+        <div class="first-col">
+          <%= image_tag @home.image.url, :size => '400x300' %>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="second-col" >
+          <h4>Address:</h4>
+          <div class="sd-link">
+            <a href="http://maps.google.com/?q=<%= "#{@home.street_address}, #{@home.city}, #{@home.state}, #{@home.zip_code}" %>">
+              <%= @home.street_address %></br>
+              <%= @home.city %>,  <%= @home.state %> <%= @home.zip_code %>
+            </a>
+          </div>
+        </div>
+        <br />
+        <br />
+        <div class="second-col">
+          <h4>Description:</h4>
+          <%= @home.description %>
+        </div>
       </div>
     </div>
-    <div class="col-md-3">
-      <div class="second-col" >
-        <h4>Address:</h4>
-        <%= @home.street_address %></br>
-        <%= @home.city %>,  <%= @home.state %> <%= @home.zip_code %>
-      </div>
-      <br />
-      <br />
-      <div class="second-col">
-        <h4>Description:</h4>
-        <%= @home.description %>
-      </div>
-    </div>
   </div>
-</div>
 
-<div class="col-md-8">
-  <div class="ns-link p-t_5">
-    <span id='home-td' class="p-r_25"><a class="fa fa-thumbs-o-down fa-2x"></a></span>
-    <span id='home-tu' class="p-r_25"><a class="fa fa-thumbs-o-up fa-2x"></a></span>
-    <% if @is_favorited %>
-      <span id='home-fav-del' class="p-r_25"><a class="fa fa-star fa-2x"></a></span>
-    <% else %>
-      <span id='home-fav-add' class="p-r_25"><a class="fa fa-star-o fa-2x"></a></span>
-    <% end %>
-  </div>
-  <br />
-  <div class="p-b_5">
-    Rating: <span id="home-rating"><%= @home.rating %></span>
-  </div>
-</div>
-
-<div class="col-md-8 comments_span">
-  <ul>
-    <%= render(partial: 'homes/comment', locals: {home_id: @home.id}) %>
-    <hr />
-    <div class='comments'>
-      <% if @home.comments.any? %>
-          <% @home.comments.each do |comment| %>
-              <div class="comment-content">
-                <div class="p-l_10">
-                  <%= comment.content %>
-                </div>
-              </div>
-              <div class="p-l_10">
-                Posted by: <%= comment.user.username %>
-              </div>
-              <br />
-          <% end %>
+  <div class="col-md-8">
+    <div class="ns-link p-t_5">
+      <span id='home-td' class="p-r_25"><a class="fa fa-thumbs-o-down fa-2x"></a></span>
+      <span id='home-tu' class="p-r_25"><a class="fa fa-thumbs-o-up fa-2x"></a></span>
+      <% if @is_favorited %>
+          <span id='home-fav-del' class="p-r_25"><a class="fa fa-star fa-2x"></a></span>
       <% else %>
-          No comments to display.
+          <span id='home-fav-add' class="p-r_25"><a class="fa fa-star-o fa-2x"></a></span>
       <% end %>
     </div>
-  </ul>
-</div>
+    <br />
+    <div class="p-b_5">
+      Rating: <span id="home-rating"><%= @home.rating %></span>
+    </div>
+  </div>
 
-<div id="sidebar">
-  <% content_for(:sidebar) do %>
-      <%= render(partial: 'sidebar') %>
-  <% end %>
+  <div class="col-md-8 comments_span">
+    <ul>
+      <%= render(partial: 'homes/comment', locals: {home_id: @home.id}) %>
+      <hr />
+      <div class='comments'>
+        <% if @home.comments.any? %>
+            <% @home.comments.each do |comment| %>
+                <div class="comment-content">
+                  <div class="p-l_10">
+                    <%= comment.content %>
+                  </div>
+                </div>
+                <div class="p-l_10">
+                  Posted by: <%= comment.user.username %>
+                </div>
+                <br />
+            <% end %>
+        <% else %>
+            No comments to display.
+        <% end %>
+      </div>
+    </ul>
+  </div>
 </div>
