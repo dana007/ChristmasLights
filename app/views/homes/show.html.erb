@@ -13,22 +13,22 @@
  <%#<%= link_to(@home.rating, target: "_blank") %><br/>
 <!--<small>Submitted <%#<%= time_ago_in_words(@home.created_at) %> ago</small>-->
  <div class="col-md-8">
-    <div class="col-md-4" style="margin-top: 15px">
+    <div class="col-md-5" style="margin-top: 15px">
         <div class="first-col">
             <h3>Picture:</h3>
             <p>
               <strong><%= @home.title%></strong>
-                 <%= image_tag @home.image.url, :size => "100x100" %>
+                 <%= image_tag @home.image.url, :size => "300x300" %>
             </p>
         </div>
     </div>
-    <div class="col-md-4" style="margin-top: 15px">
-        <div class="second-col" style="margin-left: 65px">
+    <div class="col-md-3" style="margin-top: 15px">
+        <div class="second-col" style="margin-left: 65px; width: 100%" >
             <h3>Address:</h3>
-            <%= @home.street_address %>
-            <%= @home.city %>
-            <%= @home.state %>
-            <%= @home.zip_code %>
+            <span><%= @home.street_address %></br></span>
+            <span><%= @home.city %></span>
+            <span><%= @home.state %><%= @home.zip_code %>
+            </span>
         </div>
     </div>
    

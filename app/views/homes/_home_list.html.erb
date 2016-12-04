@@ -23,7 +23,6 @@
   <% homes.each do |home| %>
     <!--<tr class="home" data-href='homes/<<%#%= home.id %>'>-->
       <tr class="home" data-href="<%= home_path(home.id) %>">
-      <!--<td><%#<%= image_tag @home.image_file_name.url %></td>-->
       <td><%= image_tag home.image.url, :size => "50x50" %></td>
       <td class="title"><%= home.title %></td>
       <td class="city"><%= home.city %></td>
