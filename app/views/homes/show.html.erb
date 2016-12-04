@@ -48,7 +48,13 @@
 
   <div class="col-md-8 comments_span">
     <ul>
-      <%= render(partial: 'homes/comment', locals: {home_id: @home.id}) %>
+      <% if cookies[:user_id] %>
+        <%= render(partial: 'homes/comment', locals: {home_id: @home.id}) %>
+      <% else %>
+        <div class="sd-link p-t_15">
+          Please <%= link_to "login", users_path %> or <%= link_to "sign up", new_user_path %> to post comments
+        </div>
+      <% end %>
       <hr />
       <div class='comments'>
         <% if @home.comments.any? %>
@@ -64,7 +70,7 @@
                 <br />
             <% end %>
         <% else %>
-            No comments to display.
+            No comments available
         <% end %>
       </div>
     </ul>
