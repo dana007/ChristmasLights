@@ -46,7 +46,12 @@ class HomesController < ApplicationController
 
   def create
     new_params = home_params.merge({user_id: cookies[:user_id]})
-    @home = Home.create(new_params)
+    if Home.exists?(street_address: new_params[:street_address], city: new_params[:city], state: new_params[:state],
+      zip_code: new_params[:zip_code])
+      $error_message = 'A home at the specified address already exists!'
+      redirect_to(new_home_path) and return
+    end
+    @home = Home.create!(new_params)
     $info_message = 'Home added successfully.'
     redirect_to home_path(@home.id)
   end

@@ -17,9 +17,8 @@ class Home < ActiveRecord::Base
   # image_updated_at: timestamp
 
   has_attached_file :image, :styles => { :small => "150x150>" }
-  #validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
-  validates_attachment_content_type :image, :content_type => ['image/jpeg', 'image/png', 'image/gif']
-  validates_attachment_file_name :image, :matches => [/png\Z/, /jpe?g\Z/, /gif\Z/]
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
+  validates_attachment_file_name :image, :matches => [/png\Z/, /PNG\Z/, /jpe?g\Z/, /gif\Z/, /GIF\Z/, /JPE?G\Z/]
 
   has_many :favorites
   has_many :comments

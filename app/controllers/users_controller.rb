@@ -7,6 +7,11 @@ class UsersController < ApplicationController
   end
 
   def create
+    if User.exists?(username: params[:user_name])
+      $error_message = 'A user with that username already exists!'
+      redirect_to(new_user_path) and return
+    end
+
     new_user = User.new
     new_user.username = params[:user_name]
     new_user.email = params[:email]
