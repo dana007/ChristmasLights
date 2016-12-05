@@ -27,11 +27,11 @@
     <th>City</th>
     <th>State</th>
     <th>Neighborhood</th>
-    <th>Likes</th>
+    <th>Rating</th>
     <th>Post Date</th>
   </tr>
   <% homes.each do |home| %>
-      <tr class="home" data-href="<%= home_path(home.id) %>">
+      <tr class="home" data-href="<%= home_path(home.id) %>" data-no-turbolink>
         <% if home.image.exists? %>
           <td class="image"><%= image_tag home.image.url, :size => '100x100' %></td>
         <% else %>
@@ -43,7 +43,7 @@
         <td class="state"><%= home.state %></td>
         <td class="neighborhood"><%= home.neighborhood %></td>
         <td class="rating"><%= home.rating %></td>
-        <td class="created_at"><%= home.decorated_created_at %>
+        <td class="created_at"><%= home.decorated_created_at %></td>
       </tr>
   <% end %>
 </table>

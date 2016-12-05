@@ -6,8 +6,9 @@ class HomesController < ApplicationController
     @per_page_options = [[10, 10], [25, 25], [50, 50], [100, 100]]
     @selected_per_page = 10
 
-    if not params[:per_page].nil?
+    if params.has_key?(:per_page)
       @selected_per_page = params[:per_page]
+      params[:filterrific][:per_page] = @selected_per_page
     end
 
     Home.set_per_page(@selected_per_page)
@@ -57,8 +58,6 @@ class HomesController < ApplicationController
   end
 
   def update_rating
-    print('IM HERE')
-    print(params[:id])
     home = Home.find(params[:id])
     home.rating += Integer(params[:rating])
     home.save
