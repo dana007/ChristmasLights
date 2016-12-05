@@ -7,6 +7,23 @@
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
+<script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+      t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
+
 <h1 class="page-title">Home Details</h1>
 <div class="align-div-center">
   <div class="col-md-8">
@@ -60,6 +77,13 @@
            data-href="<%= home_url(@home.id) %>"
            data-layout="button_count"
            data-size="large">
+      </div>
+      <br />
+      <div class="pull-right">
+        <a class="twitter-share-button"
+           href="https://twitter.com/intent/tweet?text=Check out the Christmas lights on this house!"
+           data-size="large">
+          Tweet</a>
       </div>
     </div>
     <br />
