@@ -31,7 +31,7 @@
     <th>Post Date</th>
   </tr>
   <% homes.each do |home| %>
-      <tr class="home" data-href="<%= home_path(home.id) %>" data-no-turbolink>
+      <tr class="home" data-href="<%= home_url(home.id) %>" onclick="window.location='<%= home_url(home.id) %>'">
         <% if home.image.exists? %>
           <td class="image"><%= image_tag home.image.url, :size => '100x100' %></td>
         <% else %>
