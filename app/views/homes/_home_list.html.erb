@@ -27,7 +27,8 @@
     <th>City</th>
     <th>State</th>
     <th>Neighborhood</th>
-    <th>Rating</th>
+    <th>Likes</th>
+    <th>Dislikes</th>
     <th>Post Date</th>
   </tr>
   <% homes.each do |home| %>
@@ -42,7 +43,8 @@
         <td class="city"><%= home.city %></td>
         <td class="state"><%= home.state %></td>
         <td class="neighborhood"><%= home.neighborhood %></td>
-        <td class="rating"><%= home.rating %></td>
+        <td class="likes"><%= home.likes %></td>
+        <td class="dislikes"><%= home.dislikes %></td>
         <td class="created_at"><%= home.decorated_created_at %></td>
       </tr>
   <% end %>

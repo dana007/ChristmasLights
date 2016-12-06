@@ -67,8 +67,10 @@ class Home < ActiveRecord::Base
     case sort_option.to_s
       when /^created_at_/
         order("homes.created_at #{direction}")
-      when /^rating_/
-        order("homes.rating #{direction}")
+      when /^likes_/
+        order("homes.likes #{direction}")
+      when /^dislikes_/
+        order("homes.dislikes #{direction}")
       else
         raise(ArgumentError, "Invalid sort option: #{sort_option.inspect}")
     end
@@ -107,8 +109,10 @@ class Home < ActiveRecord::Base
     [
         ['Post date (newest first)', 'created_at_desc'],
         ['Post date (oldest first)', 'created_at_asc'],
-        ['Likes (highest first)', 'rating_desc'],
-        ['Likes (lowest first)', 'rating_asc']
+        ['Likes (highest first)', 'likes_desc'],
+        ['Likes (lowest first)', 'likes_asc'],
+        ['Dislikes (highest first)', 'dislikes_desc'],
+        ['Dislikes (lowest first)', 'dislikes_asc']
     ]
   end
 

@@ -64,7 +64,11 @@ class HomesController < ApplicationController
 
   def update_rating
     home = Home.find(params[:id])
-    home.rating += Integer(params[:rating])
+    if params[:type] == 'like'
+      home.likes += 1
+    elsif params[:type] == 'dislike'
+      home.dislikes += 1
+    end
     home.save
 
     redirect_to home_path(home.id)

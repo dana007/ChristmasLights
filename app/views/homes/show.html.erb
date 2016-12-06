@@ -64,13 +64,13 @@
   <div class="col-md-8">
     <div class="ns-link p-t_5">
       <input type="hidden" id="home-id" value="<%= @home.id %>" />
-      <span id='home-td' class="p-r_25"><a class="fa fa-thumbs-o-down fa-2x"></a></span>
-      <span id='home-tu' class="p-r_25"><a class="fa fa-thumbs-o-up fa-2x"></a></span>
+      <span id='home-td' class="p-r_100"><a class="fa fa-thumbs-o-down fa-2x"></a></span>
+      <span id='home-tu' class="p-r_100"><a class="fa fa-thumbs-o-up fa-2x"></a></span>
       <% if cookies[:user_id] %>
         <% if @is_favorited %>
-            <span id='home-fav-del' class="p-r_25"><a class="fa fa-star fa-2x"></a></span>
+            <span id='home-fav-del'><a class="fa fa-star fa-2x"></a></span>
         <% else %>
-            <span id='home-fav-add' class="p-r_25"><a class="fa fa-star-o fa-2x"></a></span>
+            <span id='home-fav-add'><a class="fa fa-star-o fa-2x"></a></span>
         <% end %>
       <% end %>
       <div class="fb-share-button pull-right"
@@ -88,7 +88,8 @@
     </div>
     <br />
     <div class="p-b_5">
-      <strong><span id="home-rating"><%= @home.rating %></span> <span id="like-cardinality"><%= [1].include?(@home.rating) ? 'like' : 'likes' %></span></strong>
+      <strong><span id="home-dislikes"><%= @home.dislikes %></span> <span id="dislike-cardinality" class="p-r_50"><%= [1].include?(@home.dislikes) ? 'dislike' : 'dislikes' %></span></strong>
+      <strong><span id="home-likes"><%= @home.likes %></span> <span id="like-cardinality"><%= [1].include?(@home.likes) ? 'like' : 'likes' %></span></strong>
     </div>
   </div>
 

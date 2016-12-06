@@ -176,34 +176,34 @@ $('document').ready(function() {
     $("#home-td").click(function(){
         $.ajax({
             url: '/homes/' + $("#home-id").val() + '/update_rating',
-            data: {'rating': -1},
+            data: {'type': 'dislike'},
             type: 'post',
             beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))}
         });
 
-        var rating = Number($("#home-rating").html());
-        var new_rating = rating - 1;
-        $("#home-rating").html(new_rating);
+        var rating = Number($("#home-dislikes").html());
+        var new_rating = rating + 1;
+        $("#home-dislikes").html(new_rating);
 
         if (new_rating != 1) {
-            $("#like-cardinality").html('likes');
+            $("#dislike-cardinality").html('dislikes');
         }
         else {
-            $("#like-cardinality").html('like');
+            $("#dislike-cardinality").html('dislike');
         }
     });
 
     $("#home-tu").click(function(){
         $.ajax({
             url: '/homes/' + $("#home-id").val() + '/update_rating',
-            data: {'rating': 1},
+            data: {'type': 'like'},
             type: 'post',
             beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))}
         });
 
-        var rating = Number($("#home-rating").html());
+        var rating = Number($("#home-likes").html());
         var new_rating = rating + 1;
-        $("#home-rating").html(new_rating);
+        $("#home-likes").html(new_rating);
         if (new_rating != 1) {
             $("#like-cardinality").html('likes');
         }
@@ -214,7 +214,7 @@ $('document').ready(function() {
 
     $(document).on('click','#home-fav-add',function(){
         $.ajax({
-            url: '/homes/24/update_favorites',
+            url: '/homes/' + $('#home-id').val() + '/update_favorites',
             data: {'update_type': 'add'},
             type: 'post',
             beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))}
@@ -225,7 +225,7 @@ $('document').ready(function() {
 
     $(document).on('click','#home-fav-del',function(){
         $.ajax({
-            url: '/homes/24/update_favorites',
+            url: '/homes/' + $('#home-id').val() + '/update_favorites',
             data: {'update_type': 'delete'},
             type: 'post',
             beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))}

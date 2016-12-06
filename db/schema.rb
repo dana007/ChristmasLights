@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161204202325) do
+ActiveRecord::Schema.define(version: 20161205232220) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,7 +42,6 @@ ActiveRecord::Schema.define(version: 20161204202325) do
 
   create_table "homes", force: :cascade do |t|
     t.string   "title"
-    t.integer  "rating",                 default: 0
     t.integer  "user_id"
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
@@ -60,6 +59,8 @@ ActiveRecord::Schema.define(version: 20161204202325) do
     t.datetime "image_updated_at"
     t.string   "neighborhood"
     t.string   "description"
+    t.integer  "likes",                  default: 0
+    t.integer  "dislikes",               default: 0
   end
 
   create_table "tag_types", force: :cascade do |t|
