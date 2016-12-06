@@ -3,11 +3,11 @@
     <div class="p-b_5, align-left">
       <div class="p-b_5">
         <%= label_tag(:user_name, "Username: ") %>
-        <%= text_field_tag(:user_name, nil, class: 'text-input-box', required: true, autofocus: true) %>
+        <%= text_field_tag(:user_name, nil, class: 'text-input-box input-border', required: true, autofocus: true) %>
       </div>
       <div class="p-b_5">
         <%= label_tag(:password, "Password: ") %>
-        <%= password_field_tag(:password, nil, required: true) %>
+        <%= password_field_tag(:password, nil, class: 'input-border', required: true) %>
       </div>
     </div>
     <br />

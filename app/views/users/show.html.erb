@@ -19,11 +19,11 @@
       <div class="p-b_5 align-left">
         <div class="p-b_5 p-t_5">
           <%= label_tag(:password, "New Password: ") %>
-          <%= password_field_tag(:password, nil, id: 'new-password-input', class: 'green-border', autofocus: true) %>
+          <%= password_field_tag(:password, nil, id: 'new-password-input', class: 'input-border', autofocus: true) %>
         </div>
         <div class="p-b_5">
           <%= label_tag(:password_confirmation, "Confirm New Password: ") %>
-          <%= password_field_tag(:password_confirmation, nil, onChange: 'checkNewPasswordMatch();', id: 'new-password-confirmation-input', class: 'green-border') %>
+          <%= password_field_tag(:password_confirmation, nil, onChange: 'checkNewPasswordMatch();', id: 'new-password-confirmation-input', class: 'input-border') %>
         </div>
       </div>
       <div class="registrationFormAlert" id="divCheckPasswordMatch"></div>
@@ -38,7 +38,7 @@
       <div class="p-b_5 align-left">
         <div class="p-b_5 p-t_5">
           <%= label_tag(:email, "New Email: ") %>
-          <%= email_field_tag(:email, nil, id: 'new-email-input', class: 'text-input-box green-border', autofocus: true) %>
+          <%= email_field_tag(:email, nil, id: 'new-email-input', class: 'text-input-box input-border', autofocus: true) %>
         </div>
       </div>
       <br />
