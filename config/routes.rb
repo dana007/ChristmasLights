@@ -5,6 +5,13 @@ Rails.application.routes.draw do
     collection do
       post 'login'
       get 'logout'
+      get 'reset_password'
+      post 'send_reset_password_email'
+    end
+
+    member do
+      get 'update_password'
+      post 'change_password'
     end
   end
 
